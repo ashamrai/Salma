@@ -1,0 +1,38 @@
+#include <windows.h>
+
+1 VERSIONINFO 
+FILEVERSION 1, 0, 1, 2
+PRODUCTVERSION 1, 0, 1, 2
+FILEFLAGSMASK VS_FFI_FILEFLAGSMASK
+FILEOS VOS__WINDOWS32
+FILETYPE VFT_DLL
+{
+ BLOCK "StringFileInfo"
+ {
+  BLOCK "040904E4"
+  {
+   VALUE "CompanyName", "(none)\000"
+   VALUE "FileDescription", "Helper plugin to retreive file information\000"
+   VALUE "FileVersion", "1.0.1.2\000"
+   VALUE "InternalName", "The MoreInfo NSIS Plugin\000"
+   VALUE "LegalCopyright", "no \251 2005\000"
+   VALUE "LegalTrademarks", "No rights reserved.\000"
+   VALUE "OriginalFilename", "MoreInfo.dll\000"
+   VALUE "ProductName", "MoreInfo NSIS Plugin\000"
+   VALUE "ProductVersion", "1.0\000"
+   VALUE "Comments", "Improves the customer installation experience.\000"
+#ifdef UNICODE
+   VALUE "SpecialBuild", "UNICODE\0"
+#else
+   VALUE "SpecialBuild", "ANSI\0"
+#endif
+  }
+
+ }
+
+ BLOCK "VarFileInfo"
+ {
+  VALUE "Translation", 1033, 1252
+ }
+
+}

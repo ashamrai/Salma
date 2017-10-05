@@ -1,0 +1,180 @@
+﻿<Window x:Class="WordToTFS.View.RequiredFields"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:properties="clr-namespace:WordToTFS.Properties"
+        mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:helpers="clr-namespace:WordToTFS.Helpers"
+         Closing="DataWindowClosed"  
+        WindowStartupLocation="CenterScreen"
+        Title="{x:Static properties:Resources.CreateNew_Title}" HorizontalContentAlignment="Center" d:DesignHeight="407" d:DesignWidth="393" SizeToContent="WidthAndHeight">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Style.xaml"></ResourceDictionary>
+                <ResourceDictionary>
+                            <DataTemplate x:Key="HtmlCellDataTemplate">
+                        <StackPanel>
+                            <TextBlock Text="{Binding Path=Name}" Margin="5,5,5,2"/>
+                            <TextBox Margin="5,0,5,5" Text="{Binding Path=Value, Mode=TwoWay, 
+                                UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, NotifyOnValidationError=True}" 
+                                     Height="70" 
+                                     SelectionBrush="#FF444444"
+                                     BorderBrush="#FF444444"
+                                     AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible"/>
+                        </StackPanel>
+                    </DataTemplate>
+                    <DataTemplate x:Key="StringCellDataTemplate">
+                        <StackPanel>
+                            <TextBlock Text="{Binding Path=Name}" Margin="5,5,5,2" />
+                            <TextBox Margin="5,0,5,5" Text="{Binding Path=Value, Mode=TwoWay, 
+                                UpdateSourceTrigger=PropertyChanged}" 
+                                     Height="23" 
+                                     SelectionBrush="#FF444444"
+                                     BorderBrush="#FF444444" />
+                        </StackPanel>
+                    </DataTemplate>
+                    <DataTemplate x:Key="NonEditableComboBoxCellDataTemplate">
+                        <StackPanel>
+                            <TextBlock Text="{Binding Path=Name}" Margin="5,5,5,2"/>
+                            <ComboBox Margin="5,0,5,5" Style="{StaticResource NonEditableComboBoxStyle}" 
+                                      ItemsSource="{Binding ComboBoxCollection}"
+                                      SelectedItem="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                    <DataTemplate x:Key="EditableComboBoxCellDataTemplate">
+                        <StackPanel Focusable="False">
+                            <TextBlock Text="{Binding Path=Name}" Margin="5,5,5,2"/>
+                            <ComboBox IsEditable="True" Margin="5,0,5,5"
+                                      ItemsSource="{Binding ComboBoxCollection}" 
+                                      Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" BorderBrush="#FF444444"/>
+                        </StackPanel>
+                    </DataTemplate>
+                    <DataTemplate x:Key="DateTimeCellDataTemplate">
+                        <StackPanel>
+                            <TextBlock Text="{Binding Path=Name}" Margin="5,5,5,2" />
+                            <DatePicker  SelectedDate="{Binding Path=Value, Mode=TwoWay, 
+                                UpdateSourceTrigger=PropertyChanged}" Margin="5,0,5,5" 
+                                        BorderBrush="#FF444444" Height="23" SelectedDateFormat="Short" />
+
+                            <!--Text="{Binding Path=Value, Mode=TwoWay, 
+                                UpdateSourceTrigger=PropertyChanged}"-->
+                        </StackPanel>
+                    </DataTemplate>
+                    <!--<DatePicker Height="25" HorizontalAlignment="Left" Margin="146,-18,0,0" Name="datePicker1" VerticalAlignment="Top" Width="115" />-->
+                    <helpers:DataGridCellDataTemplateSelector x:Key="TemplateSelector" 
+                                    NonEditableComboboxTemplate="{StaticResource NonEditableComboBoxCellDataTemplate}" 
+                                     EditableComboBoxTemplate="{StaticResource EditableComboBoxCellDataTemplate}"                         
+                                    StringTemplate="{StaticResource StringCellDataTemplate}"
+                                    HtmlTemplate="{StaticResource HtmlCellDataTemplate}"
+                                    DateTimeTemplate="{StaticResource DateTimeCellDataTemplate}"/>
+                  
+                    <Style TargetType="DataGrid">
+                        <Style.Triggers>
+                            <Trigger Property="IsFocused" Value="True">
+                                <Setter Property="Background" Value="Transparent" />
+                                <Setter Property="BorderBrush" Value="Transparent" />
+                                <Setter Property="Foreground" Value="Black"/>
+                            </Trigger>
+                            </Style.Triggers>
+                     </Style>
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid Margin="10" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="216*" />
+            <ColumnDefinition Width="135*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="6*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <DataGrid   ItemsSource="{Binding}" Name="fieldsData" TabIndex="0"
+                          AutoGenerateColumns="False"
+                          BorderBrush="Transparent"
+                          Background="Transparent"
+                          IsReadOnly="True" GridLinesVisibility="None" 
+                          HeadersVisibility="None" 
+                          HorizontalAlignment="Left" 
+                          Width="287" MaxHeight="500" Focusable="False" Grid.ColumnSpan="2">
+
+            <DataGrid.Resources>
+                <ResourceDictionary>
+                    <Style TargetType="ComboBox">
+                        <Style.Triggers>
+                            <Trigger Property="IsFocused" Value="True">
+                                <Setter Property="Background" Value="Transparent" />
+                                <Setter Property="BorderBrush" Value="Transparent" />
+                                <Setter Property="Foreground" Value="Black"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                    <Style TargetType="{x:Type DataGridCell}">
+                        <Setter Property="Background" Value="{x:Null}" />
+                        <Setter Property="BorderBrush" Value="{x:Null}" />
+                        <Setter Property="VerticalAlignment"  Value="Center" />
+                        <Style.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" Value="Transparent" />
+                                <Setter Property="BorderBrush" Value="Transparent" />
+                                <Setter Property="Foreground" Value="Black"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                    <Style TargetType="{x:Type DataGridRow}">
+                        <Setter Property="Background" Value="Transparent" />
+                        <Setter Property="BorderBrush" Value="Transparent" />
+                        <Style.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" Value="Transparent" />
+                                <Setter Property="BorderBrush" Value="Transparent" />
+                                <Setter Property="Foreground" Value="Black"/>
+                                <Setter Property="BorderThickness" Value="0"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </ResourceDictionary>
+            </DataGrid.Resources>
+            <DataGrid.CellStyle>
+                <Style TargetType="DataGridCell">
+                    <Setter Property="IsTabStop" Value="false"/>
+                    <Style.Triggers>
+                     
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Background" Value="{x:Null}" />
+                            <Setter Property="Foreground" Value="Black"/>
+                            <Setter Property="BorderBrush" Value="{x:Null}" />
+                           
+                        </Trigger>
+                        <Trigger Property="IsTabStop" Value="True">
+                            <Setter Property="Background" Value="{x:Null}" />
+                            <Setter Property="Foreground" Value="Black"/>
+                            <Setter Property="BorderBrush" Value="{x:Null}" />
+                          
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+                </DataGrid.CellStyle>
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Width="*" CellTemplateSelector="{StaticResource TemplateSelector}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Right" Grid.ColumnSpan="2">
+            <Button Name="createButton1" Margin="1,5,1,5"
+                    IsDefault="True"
+                    Click="CreateButton1Click"
+                    Content="{x:Static properties:Resources.CreateNew_Create_Label}"
+                    Style="{StaticResource MetroButton}"/>
+                    <Button Name="cancelButton1"  Margin="10,10,7,10"
+                     IsDefault="True"
+                    Click="CancelButton1Click"
+                    Content="{x:Static properties:Resources.CreateNew_Cancel_Label}"
+                    Style="{StaticResource MetroButton}" />
+        </StackPanel>
+    </Grid>
+
+</Window>

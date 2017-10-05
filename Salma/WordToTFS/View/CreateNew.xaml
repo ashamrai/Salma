@@ -1,0 +1,67 @@
+﻿<Window 
+        x:Class="WordToTFSWordAddIn.Views.CreateNew"
+        
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:properties="clr-namespace:WordToTFS.Properties"
+        Closing="DataWindowClosed"  
+        WindowStartupLocation="CenterScreen"
+        Title="{x:Static properties:Resources.CreateNew_Title}"
+       SizeToContent="WidthAndHeight" HorizontalContentAlignment="Center" mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" d:DesignWidth="513" d:DesignHeight="296" >
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Style.xaml"></ResourceDictionary>
+                
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+
+    <Grid Height="254" Width="486">
+            <Label Name="label1"
+                   Height="28"
+                   Margin="12,154,0,0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   Content="{x:Static properties:Resources.CreateNew_Title_Label}" />
+        <Button Name="createButton"
+                    
+                    
+                    IsDefault="True"
+                    Margin="313,216,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Click="CreateButtonClick"
+                    Content="{x:Static properties:Resources.CreateNew_Create_Label}"
+                    Style="{StaticResource MetroButton}"
+                    />
+            <Button Name="cancelButton"
+                    Margin="397,216,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Click="CancelButtonClick"
+                    Content="{x:Static properties:Resources.CreateNew_Cancel_Label}"
+                    Style="{StaticResource MetroButton}"
+                      />
+            <Label Name="label2"
+                   Height="28"
+                   Margin="12,0,0,0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   Content="{x:Static properties:Resources.CreateNew_Work_Item_Type_Label}" />
+        <ListBox x:Name="listBox1" ItemsSource="{Binding WorkItems}" SelectedIndex="0"  SelectedItem="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                     Width="460"
+                     Height="120"
+                     Margin="12,28,0,0"
+                     HorizontalAlignment="Left"
+                     VerticalAlignment="Top" />
+        <TextBox x:Name="titleTextBox" Text="{Binding Path=Title, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+            	Width="460"
+            	Height="23"
+            	Margin="12,177,0,0"
+            	HorizontalAlignment="Left"
+            	VerticalAlignment="Top" SelectionBrush="#FF444444" BorderBrush="#FF444444" />
+    </Grid>
+    
+</Window>

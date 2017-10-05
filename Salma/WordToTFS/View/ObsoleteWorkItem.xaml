@@ -1,0 +1,113 @@
+﻿<Window x:Class="WordToTFS.View.ObsoleteWorkItem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:view="clr-namespace:WordToTFS.View"
+             xmlns:properties="clr-namespace:WordToTFS.Properties"
+             WindowStartupLocation="CenterScreen"
+             mc:Ignorable="d" 
+             Title="{x:Static properties:Resources.ObsoleteWorkItem_Title}"
+             SizeToContent="WidthAndHeight" HorizontalContentAlignment="Center" 
+             d:DesignHeight="400" d:DesignWidth="500" ResizeMode="NoResize">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Style.xaml"></ResourceDictionary>
+
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <StackPanel>
+            <StackPanel Orientation="Vertical">
+                <Label Content="{x:Static properties:Resources.ObsoleteWorkItem_Label_Item}"/>
+                <StackPanel Orientation="Horizontal">
+                    <CheckBox x:Name="TitleSelected" Margin="10,5" Click="TitleSelected_Click"/>
+                    <Label Content="{x:Static properties:Resources.ObsoleteWorkItem_Title_Item}" Width="130"/>
+                    <TextBox x:Name="txtWorkItemTitle" Width="200"  SelectionBrush="#FF444444" BorderBrush="#FF444444" TextChanged="txtWorkItemTitle_TextChanged"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,10">
+                    <CheckBox x:Name="TagSelected" Margin="10,5" Click="TagSelected_Click"/>
+                    <Label Content="{x:Static properties:Resources.ObsoleteWorkItem_Tag_Item}" Width="130"/>
+                    <TextBox x:Name="txtWorkItemTag" Width="200"  SelectionBrush="#FF444444" BorderBrush="#FF444444" TextChanged="txtWorkItemTag_TextChanged"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel>
+                <Label Content="{x:Static properties:Resources.ObsoleteWorkItem_Label_Links}"/>
+                <ListView x:Name="Links" Width="480" Height="200">
+                    <ListView.View>
+                        <GridView>
+                            <GridView.Columns>
+                                <GridViewColumn Width="30">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <CheckBox IsChecked="{Binding IsSelected}"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                    <GridViewColumn.Header>
+                                        <TextBlock Text=""/>
+                                    </GridViewColumn.Header>
+                                </GridViewColumn>
+                                <GridViewColumn Width="80">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <ComboBox ItemsSource="{Binding ActionTypes}" SelectedItem="{Binding SelectedActionType}"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                    <GridViewColumn.Header>
+                                        <TextBlock Text="{x:Static properties:Resources.Obsolete_List_Action_Title}"/>
+                                    </GridViewColumn.Header>
+                                </GridViewColumn>
+                                <GridViewColumn Width="80">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding LinkTypeEnd}"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                    <GridViewColumn.Header>
+                                        <TextBlock Text="{x:Static properties:Resources.Obsolete_List_WILink_Title}"/>
+                                    </GridViewColumn.Header>
+                                </GridViewColumn>
+                                <GridViewColumn Width="100">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding TargetWorkItemType}" />
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                    <GridViewColumn.Header>
+                                        <TextBlock Text="{x:Static properties:Resources.Obsolete_List_WIType_Title}"/>
+                                    </GridViewColumn.Header>
+                                </GridViewColumn>
+                                <GridViewColumn Width="80">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding TargetId}" />
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                    <GridViewColumn.Header>
+                                        <TextBlock Text="{x:Static properties:Resources.Obsolete_List_WIId_Title}"/>
+                                    </GridViewColumn.Header>
+                                </GridViewColumn>
+                                <GridViewColumn Width="140">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding TargetWorkItemTitle}" />
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                    <GridViewColumn.Header>
+                                        <TextBlock Text="{x:Static properties:Resources.Obsolete_List_WITitle_Title}"/>
+                                    </GridViewColumn.Header>
+                                </GridViewColumn>
+                            </GridView.Columns>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="OkButton" Style="{StaticResource MetroButton}" Margin="140,10, 0, 10" Content="{x:Static properties:Resources.ObsoleteWorkItem_Ok_Label}" Click="OkButton_Click"/>
+                <Button x:Name="OkCancel" Style="{StaticResource MetroButton}" Margin="50,10, 0, 10" Content="{x:Static properties:Resources.ObsoleteWorkItem_Cancel_Lablel}" Click="OkCancel_Click"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

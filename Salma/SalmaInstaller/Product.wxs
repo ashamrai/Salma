@@ -1,0 +1,516 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?define Version="2.0.1" ?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Product Id="*" Name="SALMA for MS Word" Language="1033" Version="$(var.Version)" Manufacturer="SoftServe Ltd." UpgradeCode="13c8acf3-bbcb-459f-88ef-0f30e08331f5" Codepage="$(var.codepage)">
+    <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine"
+             Languages="1033" SummaryCodepage="1252" />
+
+    <Upgrade Id="13c8acf3-bbcb-459f-88ef-0f30e08331f5">
+      <UpgradeVersion Minimum="1.0.0"
+                      IncludeMinimum="yes"
+                      OnlyDetect="no"
+                      Maximum="$(var.Version)"
+                      IncludeMaximum="no"
+                      Property="PREVIOUSFOUND" />
+    </Upgrade>
+    
+    <Condition Message="You need to be an administrator to install this product.">
+      Privileged
+    </Condition>
+
+    <!--<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />-->
+    <!-- Deploy with one file set to "yes" -->
+    <MediaTemplate EmbedCab="yes"  />
+
+    <Feature Id="ProductFeature" Title="SALMA for MS Word" Level="1">
+      <ComponentGroupRef Id="MainComponents" />
+      <ComponentGroupRef Id="USLocalizationComponents" />
+      <ComponentGroupRef Id="RuLocalizationComponents" />
+      <ComponentGroupRef Id="HelpComponents" />
+
+      <ComponentRef Id="Registry.FriendlyName" />
+      <ComponentRef Id="Registry.Description" />
+      <ComponentRef Id="Registry.Manifest" />
+      <ComponentRef Id="Registry.LoadBehavior" />        
+    </Feature>         
+    
+    <!-- UI and Dialog Flow Definition -->
+    <UI Id="WixUI_InstallDir">                        
+      <TextStyle Id="WixUI_Font_Normal" FaceName="Tahoma" Size="8" />
+      <TextStyle Id="WixUI_Font_Bigger" FaceName="Tahoma" Size="12" />
+      <TextStyle Id="WixUI_Font_Title" FaceName="Tahoma" Size="9" Bold="yes" />
+
+      <Property Id="DefaultUIFont" Value="WixUI_Font_Normal" />
+      <Property Id="WixUI_Mode" Value="InstallDir" />
+
+      <DialogRef Id="BrowseDlg" />
+      <DialogRef Id="DiskCostDlg" />
+      <DialogRef Id="ErrorDlg" />
+      <DialogRef Id="FatalError" />
+      <DialogRef Id="FilesInUse" />
+      <DialogRef Id="MsiRMFilesInUse" />
+      <DialogRef Id="PrepareDlg" />
+      <DialogRef Id="ProgressDlg" />
+      <DialogRef Id="ResumeDlg" />
+      <DialogRef Id="UserExit" />
+
+      <Publish Dialog="ExitDialog" Control="Finish" Event="EndDialog" Value="Return" Order="999">1</Publish>
+
+      <Publish Dialog="WelcomeDlg" Control="Next" Event="NewDialog" Value="InstallDirDlg">1</Publish>
+
+      <Publish Dialog="LicenseAgreementDlg" Control="Back" Event="NewDialog" Value="WelcomeDlg">1</Publish>
+      <Publish Dialog="LicenseAgreementDlg" Control="Next" Event="NewDialog" Value="InstallDirDlg">LicenseAccepted = "1"</Publish>
+
+      <Publish Dialog="InstallDirDlg" Control="Back" Event="NewDialog" Value="WelcomeDlg">1</Publish>
+      <Publish Dialog="InstallDirDlg" Control="Next" Event="SetTargetPath" Value="[WIXUI_INSTALLDIR]" Order="1">1</Publish>
+      <Publish Dialog="InstallDirDlg" Control="Next" Event="NewDialog" Value="VerifyReadyDlg" Order="2">1</Publish>
+      <Publish Dialog="InstallDirDlg" Control="ChangeFolder" Property="_BrowseProperty" Value="[WIXUI_INSTALLDIR]" Order="1">1</Publish>
+      <Publish Dialog="InstallDirDlg" Control="ChangeFolder" Event="SpawnDialog" Value="BrowseDlg" Order="2">1</Publish>
+
+      <Publish Dialog="VerifyReadyDlg" Control="Back" Event="NewDialog" Value="InstallDirDlg" Order="1">NOT Installed</Publish>
+      <Publish Dialog="VerifyReadyDlg" Control="Back" Event="NewDialog" Value="MaintenanceTypeDlg" Order="2">Installed</Publish>
+
+      <Publish Dialog="MaintenanceWelcomeDlg" Control="Next" Event="NewDialog" Value="MaintenanceTypeDlg">1</Publish>
+
+      <Publish Dialog="MaintenanceTypeDlg" Control="RepairButton" Event="NewDialog" Value="VerifyReadyDlg">1</Publish>
+      <Publish Dialog="MaintenanceTypeDlg" Control="RemoveButton" Event="NewDialog" Value="VerifyReadyDlg">1</Publish>
+      <Publish Dialog="MaintenanceTypeDlg" Control="Back" Event="NewDialog" Value="MaintenanceWelcomeDlg">1</Publish>
+
+      <Property Id="ARPNOMODIFY" Value="1" />
+
+    </UI>
+
+    <InstallExecuteSequence>
+      <RemoveExistingProducts After="InstallInitialize"/>
+    </InstallExecuteSequence>
+    
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER" />
+    <UIRef Id="WixUI_Common" />
+
+  </Product>
+
+  <Fragment>
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="CompanyFolder" Name="SoftServe" >
+          <Directory Id="INSTALLFOLDER" Name="SALMA for Word">
+            <Component Id="Registry.FriendlyName" Guid="4eb5360e-d900-4246-8c9b-6c7257057ac4">
+              <RegistryValue Id="RegKey.FriendlyName" Root="HKCU"
+                             Key="Software\Microsoft\Office\Word\AddIns\SoftServe.SALMA"
+                             Name="FriendlyName"
+                             Value="SoftServe SALMA Add-In"
+                             Type="string" KeyPath="yes" />
+            </Component>
+            <Component Id="Registry.Description" Guid="d19036d3-6efa-4ce4-ac2e-000ca1ac87d1">
+              <RegistryValue Id="RegKey.Description" Root="HKCU"
+                             Key="Software\Microsoft\Office\Word\AddIns\SoftServe.SALMA"
+                             Name="Description"
+                             Value="SoftServe SALMA Add-In"
+                             Type="string" KeyPath="yes" />
+            </Component>
+            <Component Id="Registry.Manifest" Guid="832bdd47-de98-4377-8d70-ca4cdda993d4">
+              <RegistryValue Id="RegKey.Manifest" Root="HKCU"
+                             Key="Software\Microsoft\Office\Word\AddIns\SoftServe.SALMA"
+                             Name="Manifest" Value="file:///[INSTALLFOLDER]Salma.vsto|vstolocal"
+                             Type="string" KeyPath="yes" />
+            </Component>
+            <Component Id="Registry.LoadBehavior" Guid="2041b919-78c0-4738-b6ba-e485cf6fa2e8">
+              <RegistryValue Id="RegKey.LoadBehavior" Root="HKCU"
+                             Key="Software\Microsoft\Office\Word\AddIns\SoftServe.SALMA"
+                             Name="LoadBehavior" Value="3"
+                             Type="integer" KeyPath="yes" />
+            </Component>
+            <Directory Id="LocalizationUS" Name="en-US"></Directory>
+            <Directory Id="LocalizationRu" Name="ru-RU"></Directory>
+            <Directory Id="Help" Name="Help"></Directory>
+          </Directory>
+        </Directory>
+      </Directory>
+    </Directory>
+  </Fragment>
+
+  <Fragment>
+    <!--Main Folder Components -->
+    <ComponentGroup Id="MainComponents" Directory="INSTALLFOLDER">
+      <Component Id="WordToTFS.dll.Component" Guid="d2540b36-fd92-4e4a-b576-42024d35955c">
+        <File Id="WordToTFS.dll" KeyPath="yes"
+              Name="WordToTFS.dll"
+              Source="$(var.Salma.TargetDir)" />
+      </Component>
+      <Component Id="HtmlAgilityPack.dll.Component" Guid="8F578E85-0B86-429C-B0F6-E58E16C994A9">
+        <File Id="HtmlAgilityPack.dll" KeyPath="yes"
+              Name="HtmlAgilityPack.dll"
+              Source="$(var.Salma.TargetDir)" />
+      </Component>
+      <Component Id="DocumentFormat.OpenXml.dll.Component" Guid="F4FD49D3-411D-44EC-B72E-324D78D5A45A">
+        <File Id="DocumentFormat.OpenXml.dll" KeyPath="yes"
+              Name="DocumentFormat.OpenXml.dll"
+              Source="$(var.Salma.TargetDir)" />
+      </Component>
+      <Component Id="Ionic.Zip.dll.Component" Guid="0056497d-5482-4898-ad52-83ac203d9476">
+        <File Id="Ionic.Zip.dll" KeyPath="yes"
+              Name="Ionic.Zip.dll"
+              Source="$(var.Salma.TargetDir)" />
+      </Component>
+
+      <Component Id="Microsoft.IdentityModel.Clients.ActiveDirectory.dll.Component" Guid="3a18be42-ef72-4ee8-827f-601da557aa6d">
+        <File Id="Microsoft.IdentityModel.Clients.ActiveDirectory.dll" KeyPath="yes"
+              Name="Microsoft.IdentityModel.Clients.ActiveDirectory.dll"
+              Source="$(var.Salma.TargetDir)" />
+      </Component>
+      <Component Id="Microsoft.IdentityModel.Logging.dll.Component" Guid="a6e3fdff-aa3c-43b9-aec0-6cea181b35f2">
+        <File Id="Microsoft.IdentityModel.Logging.dll" KeyPath="yes"
+              Name="Microsoft.IdentityModel.Logging.dll"
+              Source="$(var.Salma.TargetDir)" />
+      </Component>
+      <Component Id="Microsoft.IdentityModel.Tokens.dll.Component" Guid="1e55d930-25d6-4437-9f75-39d710d12abd">
+        <File Id="Microsoft.IdentityModel.Tokens.dll" KeyPath="yes"
+              Name="Microsoft.IdentityModel.Tokens.dll"
+              Source="$(var.Salma.TargetDir)" />
+      </Component>
+
+      <Component Id="Microsoft.mshtml.dll.Component" Guid="ee0f914a-8b83-409b-81a8-7fabb67490ed">
+        <File Id="Microsoft.mshtml.dll" KeyPath="yes"
+              Name="Microsoft.mshtml.dll"
+              Source="$(var.Salma.TargetDir)" />
+      </Component>
+      <Component Id="Microsoft.Office.Tools.Common.v4.0.Utilities.dll.Component" Guid="00a46e81-d000-472b-8a6c-e9f516dd7824">
+        <File Id="Microsoft.Office.Tools.Common.v4.0.Utilities.dll" KeyPath="yes"
+              Name="Microsoft.Office.Tools.Common.v4.0.Utilities.dll"
+              Source="$(var.Salma.TargetDir)" />
+      </Component>
+      <Component Id="Microsoft.Office.Tools.v4.0.Framework.dll.Component" Guid="83807c1c-31a6-4ec5-85f4-6d06e2605d33">
+        <File Id="Microsoft.Office.Tools.v4.0.Framework.dll" KeyPath="yes"
+              Name="Microsoft.Office.Tools.v4.0.Framework.dll"
+              Source="$(var.Salma.TargetDir)" />
+      </Component>
+      <Component Id="Microsoft.Office.Tools.Word.dll.Component" Guid="8581359c-f99e-4921-80a7-4b9eb5f86a1b">
+        <File Id="Microsoft.Office.Tools.Word.dll" KeyPath="yes"
+              Name="Microsoft.Office.Tools.Word.dll"
+              Source="$(var.Salma.TargetDir)" />
+      </Component>
+
+      <Component Id="Microsoft.ServiceBus.dll.Component" Guid="308cf396-08cf-460c-babc-dec18e268247">
+        <File Id="Microsoft.ServiceBus.dll" KeyPath="yes"
+              Name="Microsoft.ServiceBus.dll"
+              Source="$(var.Salma.TargetDir)" />
+      </Component>
+
+      <Component Id="Microsoft.TeamFoundation.Build.Client.dll.Component" Guid="7e07db8b-a574-424e-b213-0a1faeccf3e3">
+        <File Id="Microsoft.TeamFoundation.Build.Client.dll" KeyPath="yes"
+              Name="Microsoft.TeamFoundation.Build.Client.dll"
+              Source="$(var.Salma.TargetDir)" />
+      </Component>
+      <Component Id="Microsoft.TeamFoundation.Build.Common.dll.Component" Guid="7a1ee862-f283-4e54-8dfb-cefb8810c421">
+        <File Id="Microsoft.TeamFoundation.Build.Common.dll" KeyPath="yes"
+              Name="Microsoft.TeamFoundation.Build.Common.dll"
+              Source="$(var.Salma.TargetDir)" />
+      </Component>
+      <Component Id="Microsoft.TeamFoundation.Build2.WebApi.dll.Component" Guid="50918805-660f-4e2f-9173-2e99646d551b">
+        <File Id="Microsoft.TeamFoundation.Build2.WebApi.dll" KeyPath="yes"
+              Name="Microsoft.TeamFoundation.Build2.WebApi.dll"
+              Source="$(var.Salma.TargetDir)" />
+      </Component>
+      <Component Id="Microsoft.TeamFoundation.Chat.WebApi.dll.Component" Guid="592c2936-df59-468e-b0a2-7545395eb9be">
+        <File Id="Microsoft.TeamFoundation.Chat.WebApi.dll" KeyPath="yes"
+              Name="Microsoft.TeamFoundation.Chat.WebApi.dll"
+              Source="$(var.Salma.TargetDir)" />
+      </Component>
+      <Component Id="Microsoft.TeamFoundation.Client.dll.Component" Guid="226a696b-2f7e-45de-99d0-9cc16bfb4552">
+        <File Id="Microsoft.TeamFoundation.Client.dll" KeyPath="yes"
+              Name="Microsoft.TeamFoundation.Client.dll"
+              Source="$(var.Salma.TargetDir)" />
+      </Component>
+      <Component Id="Microsoft.TeamFoundation.Common.dll.Component" Guid="7c2eda22-1d8f-404b-9d6e-c615ba66fbf4">
+        <File Id="Microsoft.TeamFoundation.Common.dll" KeyPath="yes"
+              Name="Microsoft.TeamFoundation.Common.dll"
+              Source="$(var.Salma.TargetDir)" />
+      </Component>
+      <Component Id="Microsoft.TeamFoundation.Controls.dll.Component" Guid="3a697114-393a-4070-8bb4-bec8e60baefa">
+        <File Id="Microsoft.TeamFoundation.Controls.dll" KeyPath="yes"
+              Name="Microsoft.TeamFoundation.Controls.dll"
+              Source="$(var.Salma.TargetDir)" />
+      </Component>
+      <Component Id="Microsoft.TeamFoundation.Core.WebApi.dll.Component" Guid="c5ead16a-cfe5-4928-9072-e6099438acfd">
+        <File Id="Microsoft.TeamFoundation.Core.WebApi.dll" KeyPath="yes"
+              Name="Microsoft.TeamFoundation.Core.WebApi.dll"
+              Source="$(var.Salma.TargetDir)" />
+      </Component>
+      <Component Id="Microsoft.TeamFoundation.Dashboards.WebApi.dll.Component" Guid="f45dd9a5-1fab-4d8e-af67-055e5e5569a8">
+        <File Id="Microsoft.TeamFoundation.Dashboards.WebApi.dll" KeyPath="yes"
+              Name="Microsoft.TeamFoundation.Dashboards.WebApi.dll"
+              Source="$(var.Salma.TargetDir)" />
+      </Component>
+      <Component Id="Microsoft.TeamFoundation.DeleteTeamProject.dll.Component" Guid="ff368c3f-896a-4d9e-86b8-d3ab4272f2f9">
+        <File Id="Microsoft.TeamFoundation.DeleteTeamProject.dll" KeyPath="yes"
+              Name="Microsoft.TeamFoundation.DeleteTeamProject.dll"
+              Source="$(var.Salma.TargetDir)" />
+      </Component>
+      <Component Id="Microsoft.TeamFoundation.Diff.dll.Component" Guid="3f6d1d5b-56bc-46ad-bfef-f31bfe81b101">
+        <File Id="Microsoft.TeamFoundation.Diff.dll" KeyPath="yes"
+              Name="Microsoft.TeamFoundation.Diff.dll"
+              Source="$(var.Salma.TargetDir)" />
+      </Component>
+      <Component Id="Microsoft.TeamFoundation.Discussion.Client.dll.Component" Guid="44bfeb7b-5b2e-4bfa-b2b9-a794795d46b5">
+        <File Id="Microsoft.TeamFoundation.Discussion.Client.dll" KeyPath="yes"
+              Name="Microsoft.TeamFoundation.Discussion.Client.dll"
+              Source="$(var.Salma.TargetDir)" />
+      </Component>
+      <Component Id="Microsoft.TeamFoundation.DistributedTask.Common.Contracts.dll.Component" Guid="8ddf9699-a479-4668-a6b8-bfaf5b8f440b">
+        <File Id="Microsoft.TeamFoundation.DistributedTask.Common.Contracts.dll" KeyPath="yes"
+              Name="Microsoft.TeamFoundation.DistributedTask.Common.Contracts.dll"
+              Source="$(var.Salma.TargetDir)" />
+      </Component>
+      <Component Id="Microsoft.TeamFoundation.Git.Client.dll.Component" Guid="976fd4f2-ceeb-4d10-8683-5bcf56c3086d">
+        <File Id="Microsoft.TeamFoundation.Git.Client.dll" KeyPath="yes"
+              Name="Microsoft.TeamFoundation.Git.Client.dll"
+              Source="$(var.Salma.TargetDir)" />
+      </Component>
+      <Component Id="Microsoft.TeamFoundation.Lab.Client.dll.Component" Guid="018584ca-794d-46d5-86ed-4b43e769a8b9">
+        <File Id="Microsoft.TeamFoundation.Lab.Client.dll" KeyPath="yes"
+              Name="Microsoft.TeamFoundation.Lab.Client.dll"
+              Source="$(var.Salma.TargetDir)" />
+      </Component>
+      <Component Id="Microsoft.TeamFoundation.Lab.Common.dll.Component" Guid="55a59869-80b2-417d-b7b2-5113099774fc">
+        <File Id="Microsoft.TeamFoundation.Lab.Common.dll" KeyPath="yes"
+              Name="Microsoft.TeamFoundation.Lab.Common.dll"
+              Source="$(var.Salma.TargetDir)" />
+      </Component>
+      <Component Id="Microsoft.TeamFoundation.Lab.TestIntegration.Client.dll.Component" Guid="4439f83c-796d-4463-9caa-d911bad3702b">
+        <File Id="Microsoft.TeamFoundation.Lab.TestIntegration.Client.dll" KeyPath="yes"
+              Name="Microsoft.TeamFoundation.Lab.TestIntegration.Client.dll"
+              Source="$(var.Salma.TargetDir)" />
+      </Component>
+      <Component Id="Microsoft.TeamFoundation.Lab.WorkflowIntegration.Client.dll.Component" Guid="0f0a607a-2438-416b-beb0-549b282f217c">
+        <File Id="Microsoft.TeamFoundation.Lab.WorkflowIntegration.Client.dll" KeyPath="yes"
+              Name="Microsoft.TeamFoundation.Lab.WorkflowIntegration.Client.dll"
+              Source="$(var.Salma.TargetDir)" />
+      </Component>
+      <Component Id="Microsoft.TeamFoundation.Policy.WebApi.dll.Component" Guid="36721d38-b5c2-4458-bce3-455812b23ac8">
+        <File Id="Microsoft.TeamFoundation.Policy.WebApi.dll" KeyPath="yes"
+              Name="Microsoft.TeamFoundation.Policy.WebApi.dll"
+              Source="$(var.Salma.TargetDir)" />
+      </Component>
+      <Component Id="Microsoft.TeamFoundation.ProjectManagement.dll.Component" Guid="a3485720-1875-4899-8cdf-c07b56ded891">
+        <File Id="Microsoft.TeamFoundation.ProjectManagement.dll" KeyPath="yes"
+              Name="Microsoft.TeamFoundation.ProjectManagement.dll"
+              Source="$(var.Salma.TargetDir)" />
+      </Component>
+      <Component Id="Microsoft.TeamFoundation.SharePointReporting.Integration.dll.Component" Guid="beaca8ff-aead-48ff-a1c1-7f1d1fef6663">
+        <File Id="Microsoft.TeamFoundation.SharePointReporting.Integration.dll" KeyPath="yes"
+              Name="Microsoft.TeamFoundation.SharePointReporting.Integration.dll"
+              Source="$(var.Salma.TargetDir)" />
+      </Component>
+      <Component Id="Microsoft.TeamFoundation.SourceControl.WebApi.dll.Component" Guid="375e50ed-2156-4c55-b9f3-9b58f2692196">
+        <File Id="Microsoft.TeamFoundation.SourceControl.WebApi.dll" KeyPath="yes"
+              Name="Microsoft.TeamFoundation.SourceControl.WebApi.dll"
+              Source="$(var.Salma.TargetDir)" />
+      </Component>
+      <Component Id="Microsoft.TeamFoundation.Test.WebApi.dll.Component" Guid="a9965b0e-893d-4df3-8f0e-200e673e4ce2">
+        <File Id="Microsoft.TeamFoundation.Test.WebApi.dll" KeyPath="yes"
+              Name="Microsoft.TeamFoundation.Test.WebApi.dll"
+              Source="$(var.Salma.TargetDir)" />
+      </Component>
+      <Component Id="Microsoft.TeamFoundation.TestImpact.Client.dll.Component" Guid="c4f749f4-95fd-4480-bb5c-b04725c3fedb">
+        <File Id="Microsoft.TeamFoundation.TestImpact.Client.dll" KeyPath="yes"
+              Name="Microsoft.TeamFoundation.TestImpact.Client.dll"
+              Source="$(var.Salma.TargetDir)" />
+      </Component>
+      <Component Id="Microsoft.TeamFoundation.TestManagement.Client.dll.Component" Guid="0cd26318-eee4-4451-afd1-269286b7fa89">
+        <File Id="Microsoft.TeamFoundation.TestManagement.Client.dll" KeyPath="yes"
+              Name="Microsoft.TeamFoundation.TestManagement.Client.dll"
+              Source="$(var.Salma.TargetDir)" />
+      </Component>
+      <Component Id="Microsoft.TeamFoundation.TestManagement.Common.dll.Component" Guid="685d3149-0c59-4a1b-b875-c08abf23ca1d">
+        <File Id="Microsoft.TeamFoundation.TestManagement.Common.dll" KeyPath="yes"
+              Name="Microsoft.TeamFoundation.TestManagement.Common.dll"
+              Source="$(var.Salma.TargetDir)" />
+      </Component>
+      <Component Id="Microsoft.TeamFoundation.TestManagement.WebApi.dll.Component" Guid="fb8c9ab5-b775-4360-97a3-7a8b521546bd">
+        <File Id="Microsoft.TeamFoundation.TestManagement.WebApi.dll" KeyPath="yes"
+              Name="Microsoft.TeamFoundation.TestManagement.WebApi.dll"
+              Source="$(var.Salma.TargetDir)" />
+      </Component>
+      <Component Id="Microsoft.TeamFoundation.VersionControl.Client.dll.Component" Guid="7b3c4c86-5878-4d98-a0e6-41784b1c7e46">
+        <File Id="Microsoft.TeamFoundation.VersionControl.Client.dll" KeyPath="yes"
+              Name="Microsoft.TeamFoundation.VersionControl.Client.dll"
+              Source="$(var.Salma.TargetDir)" />
+      </Component>
+      <Component Id="Microsoft.TeamFoundation.VersionControl.Common.dll.Component" Guid="212e120f-201f-4970-9b79-989033e695fb">
+        <File Id="Microsoft.TeamFoundation.VersionControl.Common.dll" KeyPath="yes"
+              Name="Microsoft.TeamFoundation.VersionControl.Common.dll"
+              Source="$(var.Salma.TargetDir)" />
+      </Component>
+      <Component Id="Microsoft.TeamFoundation.VersionControl.Common.Integration.dll.Component" Guid="e5d1fb09-8957-4b97-ac1e-ac908b823850">
+        <File Id="Microsoft.TeamFoundation.VersionControl.Common.Integration.dll" KeyPath="yes"
+              Name="Microsoft.TeamFoundation.VersionControl.Common.Integration.dll"
+              Source="$(var.Salma.TargetDir)" />
+      </Component>
+      <Component Id="Microsoft.TeamFoundation.Work.WebApi.dll.Component" Guid="52010c50-0552-4623-8f56-9613f734b6ac">
+        <File Id="Microsoft.TeamFoundation.Work.WebApi.dll" KeyPath="yes"
+              Name="Microsoft.TeamFoundation.Work.WebApi.dll"
+              Source="$(var.Salma.TargetDir)" />
+      </Component>
+      <Component Id="Microsoft.TF.WorkItemTracking.Client.DataStoreLoader.dll.Component" Guid="5563528d-5fdf-4fff-8294-fe18974ad5a8">
+        <File Id="Microsoft.TeamFoundation.WorkItemTracking.Client.DataStoreLoader.dll" KeyPath="yes"
+              Name="Microsoft.TeamFoundation.WorkItemTracking.Client.DataStoreLoader.dll"
+              Source="$(var.Salma.TargetDir)" />
+      </Component>
+      <Component Id="Microsoft.TeamFoundation.WorkItemTracking.Client.dll.Component" Guid="fe8c21cf-67a5-45fc-9136-daccdd01c9c0">
+        <File Id="Microsoft.TeamFoundation.WorkItemTracking.Client.dll" KeyPath="yes"
+              Name="Microsoft.TeamFoundation.WorkItemTracking.Client.dll"
+              Source="$(var.Salma.TargetDir)" />
+      </Component>
+      <Component Id="Microsoft.TF.WorkItemTracking.Client.QueryLanguage.dll.Component" Guid="4a0cf751-07ed-4275-845d-7899c0db1ae9">
+        <File Id="Microsoft.TeamFoundation.WorkItemTracking.Client.QueryLanguage.dll" KeyPath="yes"
+              Name="Microsoft.TeamFoundation.WorkItemTracking.Client.QueryLanguage.dll"
+              Source="$(var.Salma.TargetDir)" />
+      </Component>
+      <Component Id="Microsoft.TeamFoundation.WorkItemTracking.Common.dll.Component" Guid="ce8e5801-92b5-4fc9-b0c2-a90e89efb269">
+        <File Id="Microsoft.TeamFoundation.WorkItemTracking.Common.dll" KeyPath="yes"
+              Name="Microsoft.TeamFoundation.WorkItemTracking.Common.dll"
+              Source="$(var.Salma.TargetDir)" />
+      </Component>      
+      <Component Id="Microsoft.TeamFoundation.WorkItemTracking.Controls.dll.Component" Guid="CFB0C11C-D8E0-4BE9-8DA5-2F4F05C01CB3">
+        <File Id="Microsoft.TeamFoundation.WorkItemTracking.Controls.dll" KeyPath="yes"
+              Name="Microsoft.TeamFoundation.WorkItemTracking.Controls.dll"
+              Source="$(var.Salma.TargetDir)" />
+      </Component>      
+      <Component Id="Microsoft.TeamFoundation.WorkItemTracking.ControlsCore.dll.Component" Guid="A24B5060-B088-4A78-8DD7-02028A01AC8B">
+        <File Id="Microsoft.TeamFoundation.WorkItemTracking.ControlsCore.dll" KeyPath="yes"
+              Name="Microsoft.TeamFoundation.WorkItemTracking.ControlsCore.dll"
+              Source="$(var.Salma.TargetDir)" />
+      </Component>      
+      <Component Id="Microsoft.TeamFoundation.WorkItemTracking.Proxy.dll.Component" Guid="bca63b64-49be-4603-a609-caec7e39ed9d">
+        <File Id="Microsoft.TeamFoundation.WorkItemTracking.Proxy.dll" KeyPath="yes"
+              Name="Microsoft.TeamFoundation.WorkItemTracking.Proxy.dll"
+              Source="$(var.Salma.TargetDir)" />
+      </Component>
+      <Component Id="Microsoft.TeamFoundation.WorkItemTracking.WebApi.dll.Component" Guid="a414d408-0cf5-4db3-bd5a-d4081b3c5a73">
+        <File Id="Microsoft.TeamFoundation.WorkItemTracking.WebApi.dll" KeyPath="yes"
+              Name="Microsoft.TeamFoundation.WorkItemTracking.WebApi.dll"
+              Source="$(var.Salma.TargetDir)" />
+      </Component>
+      <Component Id="Microsoft.VisualStudio.Services.Client.Interactive.dll.Component" Guid="839c6bdb-1cfa-4563-aaad-c7b760ad8fc3">
+        <File Id="Microsoft.VisualStudio.Services.Client.Interactive.dll" KeyPath="yes"
+              Name="Microsoft.VisualStudio.Services.Client.Interactive.dll"
+              Source="$(var.Salma.TargetDir)" />
+      </Component>
+      <Component Id="Microsoft.VisualStudio.Services.Common.dll.Component" Guid="4d99f85c-9eea-49fe-890b-94aacc49d4cf">
+        <File Id="Microsoft.VisualStudio.Services.Common.dll" KeyPath="yes"
+              Name="Microsoft.VisualStudio.Services.Common.dll"
+              Source="$(var.Salma.TargetDir)" />
+      </Component>
+      <Component Id="Microsoft.VisualStudio.Services.WebApi.dll.Component" Guid="34e73b68-f5e6-41b7-8369-eee410d00ac9">
+        <File Id="Microsoft.VisualStudio.Services.WebApi.dll" KeyPath="yes"
+              Name="Microsoft.VisualStudio.Services.WebApi.dll"
+              Source="$(var.Salma.TargetDir)" />
+      </Component>
+      <Component Id="Microsoft.VisualStudio.Tools.Applications.Runtime.dll.Component" Guid="05e262cc-091e-4b32-89c6-c5a6951ffa29">
+        <File Id="Microsoft.VisualStudio.Tools.Applications.Runtime.dll" KeyPath="yes"
+              Name="Microsoft.VisualStudio.Tools.Applications.Runtime.dll"
+              Source="$(var.Salma.TargetDir)" />
+      </Component>
+      <Component Id="Microsoft.WindowsAzure.Configuration.dll.Component" Guid="b0d7ed34-f252-430e-a5a2-3dfdba818fa2">
+        <File Id="Microsoft.WindowsAzure.Configuration.dll" KeyPath="yes"
+              Name="Microsoft.WindowsAzure.Configuration.dll"
+              Source="$(var.Salma.TargetDir)" />
+      </Component>
+      <Component Id="Microsoft.WITDataStore32.dll.Component" Guid="e4cd52ba-28b7-43ee-a64d-b391c234f27e">
+        <File Id="Microsoft.WITDataStore32.dll" KeyPath="yes"
+              Name="Microsoft.WITDataStore32.dll"
+              Source="$(var.Salma.TargetDir)" />
+      </Component>
+      <Component Id="Microsoft.WITDataStore64.dll.Component" Guid="5b1f4a3c-67a3-49ac-b729-fe3b923242e0">
+        <File Id="Microsoft.WITDataStore64.dll" KeyPath="yes"
+              Name="Microsoft.WITDataStore64.dll"
+              Source="$(var.Salma.TargetDir)" />
+      </Component>
+      
+      <Component Id="Newtonsoft.Json.dll.Component" Guid="5644f1c8-c2eb-451d-ab69-05a14ddd909c">
+        <File Id="Newtonsoft.Json.dll" KeyPath="yes"
+              Name="Newtonsoft.Json.dll"
+              Source="$(var.Salma.TargetDir)" />
+      </Component>
+      
+      <Component Id="System.IdentityModel.Tokens.Jwt.dll.Component" Guid="56f135f8-577e-40fc-9dc1-8c4631557294">
+        <File Id="System.IdentityModel.Tokens.Jwt.dll" KeyPath="yes"
+              Name="System.IdentityModel.Tokens.Jwt.dll"
+              Source="$(var.Salma.TargetDir)" />
+      </Component>
+      <Component Id="System.Net.Http.Formatting.dll.Component" Guid="9b2da618-b154-426b-abec-bed1d8547df8">
+        <File Id="System.Net.Http.Formatting.dll" KeyPath="yes"
+              Name="System.Net.Http.Formatting.dll"
+              Source="$(var.Salma.TargetDir)" />
+      </Component>
+      <Component Id="System.Threading.Tasks.Dataflow.dll.Component" Guid="7ac8a40d-8f1b-4b53-8b6e-90f27227c73d">
+        <File Id="System.Threading.Tasks.Dataflow.dll" KeyPath="yes"
+              Name="System.Threading.Tasks.Dataflow.dll"
+              Source="$(var.Salma.TargetDir)" />
+      </Component>
+      <Component Id="System.Web.Http.dll.Component" Guid="5341c405-532b-40a8-a74d-1883d343f625">
+        <File Id="System.Web.Http.dll" KeyPath="yes"
+              Name="System.Web.Http.dll"
+              Source="$(var.Salma.TargetDir)" />
+      </Component>
+      
+      <Component Id="Salma.dll.Component" Guid="49b32347-75d4-4cd1-a325-4ba3e94f46da">
+        <File Id="Salma.dll" KeyPath="yes"
+              Name="Salma.dll"
+              Source="$(var.Salma.TargetDir)" />
+      </Component>
+      <Component Id="Salma.dll.config.Component" Guid="c369439f-8ea7-4011-9f85-fc6c76695599">
+        <File Id="Salma.dll.config" KeyPath="yes"
+              Name="Salma.dll.config"
+              Source="$(var.Salma.TargetDir)" />
+      </Component>
+      <Component Id="Salma.dll.manifest.Component" Guid="f685b12a-85ad-40eb-8ec7-1e375440ef22">
+        <File Id="Salma.dll.manifest" KeyPath="yes"
+              Name="Salma.dll.manifest"
+              Source="$(var.Salma.TargetDir)" />
+      </Component>
+      <Component Id="Salma.vsto.Component" Guid="535460bb-d7d2-4d28-b1d7-27edf87e6492">
+        <File Id="Salma.vsto" KeyPath="yes"
+              Name="Salma.vsto"
+              Source="$(var.Salma.TargetDir)" />
+      </Component>   
+    </ComponentGroup>
+
+    <!-- US Localizarion Folder Content-->
+    <ComponentGroup Id ="USLocalizationComponents" Directory="LocalizationUS">
+      <Component Id="UsWordToTFS.resources.dll.USLocalizationComponents" Guid="6fe11b2c-fb00-4afa-9e78-d3d8f8607e43">
+        <File Id="UsWordToTFS.resources.dll" KeyPath="yes"
+              Name="WordToTFS.resources.dll"
+              Source="$(var.Salma.TargetDir)en-US\" />
+      </Component>
+    </ComponentGroup>
+
+    <!-- RU Localization Folder Conent-->
+    <ComponentGroup Id ="RuLocalizationComponents" Directory="LocalizationRu">
+      <Component Id="RuWordToTFS.resources.dll.RuLocalizationComponents" Guid="92750339-088f-4db9-b79a-16f646983858">
+        <File Id="RuWordToTFS.resources.dll" KeyPath="yes"
+              Name="WordToTFS.resources.dll"
+              Source="$(var.Salma.TargetDir)ru-RU\" />
+      </Component>
+      <Component Id="Salma.resources.dll.RuLocalizationComponents" Guid="0c97f11b-b1fc-480c-82b6-dcfa77d76d64">
+        <File Id="Salma.resources.dll" KeyPath="yes"
+              Name="Salma.resources.dll"
+              Source="$(var.Salma.TargetDir)ru-RU\" />
+      </Component>
+    </ComponentGroup>
+
+    <!-- Help Folder Content-->
+    <ComponentGroup Id ="HelpComponents" Directory="Help">
+      <Component Id="How_to_Use_SALMA.chm.RuLocalizationComponents" Guid="8d9e03e9-bbdb-4467-9433-bc26be22e536">
+        <File Id="How_to_Use_SALMA.chm" KeyPath="yes"
+              Name="How_to_Use_SALMA.chm"
+              Source="$(var.Salma.TargetDir)Help\" />
+      </Component>
+      <Component Id="How_to_Use_SALMA_RU.chm.RuLocalizationComponents" Guid="c50a9da9-c74e-4add-98da-f5e5520be2cb">
+        <File Id="How_to_Use_SALMA_RU.chm" KeyPath="yes"
+              Name="How_to_Use_SALMA_RU.chm"
+              Source="$(var.Salma.TargetDir)Help\" />
+      </Component>
+    </ComponentGroup>
+  </Fragment>
+</Wix>

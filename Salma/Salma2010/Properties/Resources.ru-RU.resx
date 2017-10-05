@@ -1,0 +1,324 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="btnActivateLabel" xml:space="preserve">
+    <value>Активировать</value>
+  </data>
+  <data name="btnAddDetailsLabel" xml:space="preserve">
+    <value>Добавить Детали</value>
+  </data>
+  <data name="btnAddDetailsToolTip" xml:space="preserve">
+    <value>Добавление деталей к рабочему элементу</value>
+  </data>
+  <data name="btnConnectLabel" xml:space="preserve">
+    <value>Подключить</value>
+  </data>
+  <data name="btnConnectToolTip" xml:space="preserve">
+    <value>Подключится к TFS</value>
+  </data>
+  <data name="btnConnect_disconnectToolTip" xml:space="preserve">
+    <value>Отключение соединения с TFS</value>
+  </data>
+  <data name="btnDisconnectLabel" xml:space="preserve">
+    <value>Отключить</value>
+  </data>
+  <data name="btnHelpLabel" xml:space="preserve">
+    <value>Помощь</value>
+  </data>
+  <data name="btnHelpToolTip" xml:space="preserve">
+    <value>Справка или активация SALMA</value>
+  </data>
+  <data name="btnHelp_mnuLabel" xml:space="preserve">
+    <value>Помощь</value>
+  </data>
+  <data name="btnLinkItemsLabel" xml:space="preserve">
+    <value>Связать Элементы</value>
+  </data>
+  <data name="btnLinkItemsToolTip" xml:space="preserve">
+    <value>Установка зависимостей рабочих элементов с внутренним или внешним ресурсом</value>
+  </data>
+  <data name="btnMatrixLabel" xml:space="preserve">
+    <value>Матрица Трассировки</value>
+  </data>
+  <data name="btnMatrixToolTip" xml:space="preserve">
+    <value>Вставка  матрицы трассировки содержащей данные с TFS</value>
+  </data>
+  <data name="btnNewWorkItemLabel" xml:space="preserve">
+    <value>Создать Элемент</value>
+  </data>
+  <data name="btnNewWorkItemToolTip" xml:space="preserve">
+    <value>Создание нового рабочего элемента</value>
+  </data>
+  <data name="btnReportLabel" xml:space="preserve">
+    <value>Создать Отчет</value>
+  </data>
+  <data name="btnReportToolTip" xml:space="preserve">
+    <value>Вставка отчёта на основании существующих запросов</value>
+  </data>
+  <data name="btnShowWorkItemsLabel" xml:space="preserve">
+    <value>Показать Примечания</value>
+  </data>
+  <data name="btnShowWorkItemsToolTip" xml:space="preserve">
+    <value>Показать/спрятать примечания о данных в TFS</value>
+  </data>
+  <data name="btnSwitchTfsUserLabel" xml:space="preserve">
+    <value>Изменить пользователя TFS</value>
+  </data>
+  <data name="btnSwitchTfsUserToolTip" xml:space="preserve">
+    <value>Смена пользователя TFS</value>
+  </data>
+  <data name="btnUpdateAndSyncLabel" xml:space="preserve">
+    <value>Обновить Элементы</value>
+  </data>
+  <data name="btnUpdateAndSyncToolTip" xml:space="preserve">
+    <value>Обновление статуса и содержимого рабочего элемента в документе</value>
+  </data>
+  <data name="btnUpdateLabel" xml:space="preserve">
+    <value>Импортировать  содержимое</value>
+  </data>
+  <data name="btnUpdateToolTip" xml:space="preserve">
+    <value>Обновление статуса рабочего элемента в документе</value>
+  </data>
+  <data name="connectionBoxToolTip" xml:space="preserve">
+    <value>Введение ссылки для соединения с TFS</value>
+  </data>
+  <data name="ddlProjectCollectionLabel" xml:space="preserve">
+    <value>Список ККП</value>
+  </data>
+  <data name="ddlProjectCollectionToolTip" xml:space="preserve">
+    <value>Выбор коллекции командных проектов</value>
+  </data>
+  <data name="ddlProjectsLabel" xml:space="preserve">
+    <value>Проекты</value>
+  </data>
+  <data name="ddlProjectsToolTip" xml:space="preserve">
+    <value>Выбор проекта команды</value>
+  </data>
+  <data name="groupReportingLabel" xml:space="preserve">
+    <value>Отчёты</value>
+  </data>
+  <data name="group1Label" xml:space="preserve">
+    <value>Отчёты</value>
+  </data>
+  <data name="group2Label" xml:space="preserve">
+    <value>Проекты</value>
+  </data>
+  <data name="groupManageWILabel" xml:space="preserve">
+    <value>Рабочие Элементы</value>
+  </data>
+  <data name="group3Label" xml:space="preserve">
+    <value>Рабочие Элементы</value>
+  </data>
+  <data name="groupConnectLabel" xml:space="preserve">
+    <value>Соединение с TFS</value>
+  </data>
+  <data name="groupHelpLabel" xml:space="preserve">
+    <value>Помощь</value>
+  </data>
+  <data name="lblConnectionUrlLabel" xml:space="preserve">
+    <value>Соединение с TFS</value>
+  </data>
+  <data name="lblTextNotLoggedIn" xml:space="preserve">
+    <value>Вы не вошли в систему </value>
+  </data>
+  <data name="menuTfsUserLabel" xml:space="preserve">
+    <value>Пользователь не авторизован</value>
+  </data>
+  <data name="menuTfsUserToolTip" xml:space="preserve">
+    <value>Отображение текущего пользователя TFS</value>
+  </data>
+  <data name="showWorkItemsLabel" xml:space="preserve">
+    <value>Показать Примечания</value>
+  </data>
+  <data name="showWorkItems_hideLabel" xml:space="preserve">
+    <value>Спрятать</value>
+  </data>
+  <data name="splitBtnConnectLabel" xml:space="preserve">
+    <value>Подключить</value>
+  </data>
+  <data name="splitBtnConnect_connectedLabel" xml:space="preserve">
+    <value>Подключено</value>
+  </data>
+  <data name="statusLabel_loggedInLabel" xml:space="preserve">
+    <value>Вы вошли как:</value>
+  </data>
+  <data name="lblAcceptAllChangesRequiredCaptionLabel" xml:space="preserve">
+    <value>SALMA – Принять все изменения</value>
+  </data>
+  <data name="lblAcceptAllChangesRequiredLabel" xml:space="preserve">
+    <value>SALMA собирается принять все отслеживаемые изменения в этом документе. Продолжить?</value>
+  </data>
+  <data name="btnOpenWorkItemLabel" xml:space="preserve">
+    <value>Открыть Элемент</value>
+  </data>
+  <data name="lblTaskPaneLabel" xml:space="preserve">
+    <value>Рабочие элементы</value>
+  </data>
+  <data name="btnCollapseWorkItemLabel" xml:space="preserve">
+    <value>Свернуть</value>
+  </data>
+  <data name="btnExpandWorkItemLabel" xml:space="preserve">
+    <value>Развернуть</value>
+  </data>
+  <data name="lblAddReplaceWorkItemErrorLabel" xml:space="preserve">
+    <value>Ошибка добавления данных</value>
+  </data>
+  <data name="lblApplyWorkItemErrorLabel" xml:space="preserve">
+    <value>Рабочий элемент не может быть обновлен в контейнере {0}</value>
+  </data>
+  <data name="lblOpenWorkItemErrorLabel" xml:space="preserve">
+    <value>Контейнер не связан с рабочим элементом</value>
+  </data>
+  <data name="btnExportItemLabel" xml:space="preserve">
+    <value>Экспорт Элемента</value>
+  </data>
+  <data name="btnImportItemsLabel" xml:space="preserve">
+    <value>Импорт Элементов</value>
+  </data>
+  <data name="btnExportItemToolTip" xml:space="preserve">
+    <value>Экспорт рабочего элемента</value>
+  </data>
+  <data name="btnImportItemsToolTip" xml:space="preserve">
+    <value>Импорт рабочих элементов</value>
+  </data>
+  <data name="btnOpenWorkItemToolTip" xml:space="preserve">
+    <value>Открытие рабочего элемента</value>
+  </data>
+  <data name="btnShowPanelLabel" xml:space="preserve">
+    <value>Показать панель</value>
+  </data>
+  <data name="ddlAreasLabel" xml:space="preserve">
+    <value>Путь области</value>
+  </data>
+  <data name="ddlLinksLabel" xml:space="preserve">
+    <value>Тип связи</value>
+  </data>
+  <data name="groupDefaultsLabel" xml:space="preserve">
+    <value>Связь по умолчанию</value>
+  </data>
+  <data name="edbLinkWiIDLabel" xml:space="preserve">
+    <value>ИД</value>
+  </data>
+  <data name="edbLinkWiLabel" xml:space="preserve">
+    <value>Раб. элем.</value>
+  </data>
+  <data name="btnObsoleteWorkItemLabel" xml:space="preserve">
+    <value>Элемент Устарел</value>
+  </data>
+</root>

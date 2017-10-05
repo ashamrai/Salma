@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<customUI xmlns="http://schemas.microsoft.com/office/2009/07/customui" onLoad="Ribbon_Load">
+  <ribbon>
+    <tabs>
+      <tab idMso="TabAddIns" label="SALMA" >
+        <group id="groupConnect" getLabel="GetLabelText" autoScale="true"  getImage="GetImageMSO">
+          <labelControl id="lblConnectionUrl" getLabel="GetLabelText"  />
+          <comboBox id="connectionBox" sizeString="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" getItemCount="getItemCount"  getItemLabel="getItemLabel"   getEnabled="EnabledState"  onChange="OnConnectionUrlChanged"  getText="GetText" label="Connection URL " showLabel="false" showImage="false" >
+
+          </comboBox>
+          <menu id="menuTfsUser" getEnabled="EnabledState"  getLabel="GetLabelText" showImage="false"  >
+            <button id="btnSwitchTfsUser" getLabel="GetLabelText" onAction="ConnectAsAnotherUser" />
+          </menu>
+          <separator id="separator2" />
+          <button id="btnConnect"  getImage="GetButtonImage"  onAction="OnConnectButtonClick"  getLabel="GetConnectLabel" size="large" />
+        </group>
+        <group id="group2" getLabel="GetLabelText" autoScale="true"  getImage="GetImageMSO">
+          <dropDown id="ddlProjectCollection" getEnabled="EnabledState"  getItemCount="getItemCount"  getItemLabel="getItemLabel" getSelectedItemIndex="getSelectedItemIndex" onAction="OnAction"   getLabel="GetLabelText"  showImage="false" sizeString="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"  />
+          <dropDown id="ddlProjects"  getEnabled="EnabledState" getLabel="GetLabelText" showImage="false" sizeString="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" getItemCount="getItemCount" getItemLabel="getItemLabel" getSelectedItemIndex="getSelectedItemIndex" onAction="OnAction" />
+          <dropDown id="ddlAreas" getEnabled="EnabledState"  getItemCount="getItemCount"  getItemLabel="getItemLabel" getSelectedItemIndex="getSelectedItemIndex" onAction="OnAction"   getLabel="GetLabelText"  showImage="false" sizeString="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" />
+        </group>
+        <group id="groupDefaults" getLabel="GetLabelText" autoScale="true"  getImage="GetImageMSO">
+          <dropDown id="ddlLinks"  getEnabled="EnabledState" getLabel="GetLabelText" showImage="false" sizeString="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" getItemCount="getItemCount" getItemLabel="getItemLabel" getSelectedItemIndex="getSelectedItemIndex" onAction="OnAction" />
+          <editBox id="edbLinkWiID"  getEnabled="EnabledState" getLabel="GetLabelText" showImage="false" sizeString="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" onChange="OnIdChange" getText="GetWIID"/>
+          <editBox id="edbLinkWi" getLabel="GetLabelText" showImage="false" sizeString="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" enabled="false" getText="GetWIText" getScreentip="GetWITip"/>
+        </group>
+        <group id="groupManageWI" getLabel="GetLabelText"  autoScale="true" getImage="GetImageMSO">
+          <button id="btnNewWorkItem" getImage="GetImageMSO" onAction="OnAddNewWorkItem" getLabel="GetLabelText" getEnabled="EnabledState" size="large"  />
+          <button id="btnAddDetails" getImage="GetImageMSO"  onAction="OnAddDetails"   getEnabled="EnabledState" getLabel="GetLabelText" size="large"   />
+          <button id="btnLinkItems" getImage="GetImageMSO" onAction="LinkItemsButtonClick"  getLabel="GetLabelText"  getEnabled="EnabledState"  size="normal"   />
+          <button id="btnOpenWorkItem" getImage="GetImageMSO" onAction="OnOpenWorkItem" getLabel="GetLabelText" getEnabled="EnabledState" size="normal"  />
+          <button id="btnObsoleteWorkItem" getImage="GetImageMSO" onAction="OnObsoleteWorkItem" getLabel="GetLabelText" getEnabled="EnabledState" size="normal"  />
+
+          <separator id="separator1" />
+          <button id="btnUpdateAndSync" getImage="GetImageMSO" onAction="UpdateAndSyncButtonClick" getEnabled="EnabledState" getLabel="GetLabelText" size="normal"   />
+          <button id="btnExportItem" getImage="GetImageMSO" onAction="OnExportItem" getEnabled="EnabledState" getLabel="GetLabelText" size="normal"/>
+          <button id="btnImportItems" getImage="GetImageMSO" onAction="OnImportItems" getEnabled="EnabledState" getLabel="GetLabelText" size="normal"/>
+          <separator id="separator3" />
+          <button id="btnShowPanel" getImage="GetImageMSO" getLabel="GetLabelText" onAction="ShowPanelButtonClick" size="large"   visible="true"  />
+        </group>
+
+        <group id="groupReporting" getLabel="GetLabelText" autoScale="true" getImage="GetImageMSO">
+          <button id="btnReport" getImage="GetImageMSO" getLabel="GetLabelText" onAction="GenerateReportButtonClick"  getEnabled="EnabledState" size="large"    />
+          <button id="btnMatrix" getImage="GetImageMSO" getLabel="GetLabelText" onAction="GenerateMatrixButtonClick" getEnabled="EnabledState" size="large"   />
+        </group>        
+        <group id="groupHelp" getLabel="GetLabelText" autoScale="true" getImage="GetImageMSO">
+
+          <splitButton id="splitBtnHelp"   size="large">
+            <button id="btnHelp" getImage="GetImageMSO" getLabel="GetLabelText" onAction="OnHelpButtonClick" />
+            <menu id="splitBtnHelp__mnu" >
+              <button id="btnHelp_mnu" getImage="GetImageMSO" getLabel="GetLabelText" onAction="OnHelpButtonClick" />
+            </menu>
+          </splitButton>
+        </group>
+      </tab>
+    </tabs>
+  </ribbon>
+</customUI>

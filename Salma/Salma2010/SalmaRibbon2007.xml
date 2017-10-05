@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<customUI xmlns="http://schemas.microsoft.com/office/2006/01/customui" onLoad="Ribbon_Load">
+  <ribbon>
+    <tabs>
+      <tab idMso="TabAddIns" label="SALMA">
+        <group id="groupConnect" getLabel="GetLabelText" imageMso="TableIndexes">
+          <labelControl id="lblConnectionUrl" getLabel="GetLabelText" />
+          <comboBox id="connectionBox" sizeString="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" getItemCount="getItemCount"  getItemLabel="getItemLabel"   getEnabled="EnabledState"  onChange="OnConnectionUrlChanged"  getText="GetText" label="Connection URL " showLabel="false" showImage="false" >
+          </comboBox>
+          <menu id="menuTfsUser" getEnabled="EnabledState"   getLabel="GetLabelText" showImage="false"  >
+            <button id="btnSwitchTfsUser" getLabel="GetLabelText" onAction="ConnectAsAnotherUser" />
+          </menu>
+          <separator id="separator2" />
+          <button id="btnConnect"  getImage="GetButtonImage"  onAction="OnConnectButtonClick"  getLabel="GetConnectLabel" size="large" />
+        </group>
+        <group id="group2" getLabel="GetLabelText">
+          <dropDown id="ddlProjectCollection" getEnabled="EnabledState"  getItemCount="getItemCount"  getItemLabel="getItemLabel" getSelectedItemIndex="getSelectedItemIndex" onAction="OnAction"   getLabel="GetLabelText"  showImage="false" sizeString="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"  />
+          <dropDown id="ddlProjects"  getEnabled="EnabledState" getLabel="GetLabelText" showImage="false" sizeString="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" getItemCount="getItemCount" getItemLabel="getItemLabel" getSelectedItemIndex="getSelectedItemIndex" onAction="OnAction" />
+        </group>
+        <group id="group3" getLabel="GetLabelText">
+          <button id="btnNewWorkItem" imageMso="ReviewNewComment" onAction="OnAddNewWorkItem" getLabel="GetLabelText" getEnabled="EnabledState" size="large"  />
+          <button id="btnAddDetails" imageMso="TableRowsInsertWord"  onAction="OnAddDetails"   getEnabled="EnabledState" getLabel="GetLabelText" size="large"   />
+          <button id="btnLinkItems" imageMso="DatabaseObjectDependencies" onAction="LinkItemsButtonClick"  getLabel="GetLabelText"  getEnabled="EnabledState"  size="large"   />
+          <button id="btnOpenWorkItem" imageMso="WebPagePreview" onAction="OnOpenWorkItem" getLabel="GetLabelText" getEnabled="EnabledState" size="large"  />
+          
+          <separator id="separator1" />
+          <button id="btnUpdateAndSync" imageMso="RecurrenceEdit" onAction="UpdateAndSyncButtonClick"   getEnabled="EnabledState" getLabel="GetLabelText" size="large"   />
+          <button id="btnExportItem" imageMso="ReviewPreviousCommentWord" onAction="OnExportItem" getLabel="GetLabelText" getEnabled="EnabledState"  size="large" />
+          <button id="btnImportItems" imageMso="ReviewNextCommentWord" onAction="OnImportItems" getLabel="GetLabelText" getEnabled="EnabledState"  size="large" />
+        </group>
+        <group id="group1" getLabel="GetLabelText">
+          <button id="btnReport" imageMso="GetExternalDataFromText" getLabel="GetLabelText" onAction="GenerateReportButtonClick"  getEnabled="EnabledState" size="large"    />
+          <button id="btnMatrix" imageMso="QueryCrosstab" getLabel="GetLabelText" onAction="GenerateMatrixButtonClick"   getEnabled="EnabledState" size="large"   />
+        </group>
+        <group id="groupHelp" getLabel="GetLabelText">
+          <splitButton id="splitBtnHelp"   size="large">
+            <button id="btnHelp" getLabel="GetLabelText" imageMso="FunctionsLogicalInsertGallery" />
+            <menu id="splitBtnHelp__mnu" >
+              <button id="btnHelp_mnu" getLabel="GetLabelText" imageMso="FunctionsLogicalInsertGallery"  onAction="OnHelpButtonClick" />
+            </menu>
+          </splitButton>
+        </group>
+      </tab>
+    </tabs>
+  </ribbon>
+</customUI>
+

@@ -1,0 +1,102 @@
+﻿<Window x:Class="WordToTFSWordAddIn.Views.MatrixReport"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+             xmlns:properties="clr-namespace:WordToTFS.Properties"
+             xmlns:view="clr-namespace:WordToTFS.View"
+             Title="{x:Static properties:Resources.MatrixReport_Title}"
+             
+             SizeToContent="WidthAndHeight" HorizontalContentAlignment="Center">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Style.xaml"></ResourceDictionary>
+                
+            </ResourceDictionary.MergedDictionaries>
+
+
+
+
+        </ResourceDictionary>
+    </Window.Resources>
+
+
+    <Grid Height="428" Width="493">
+
+        <ListBox TabIndex="0" Name="VerticalTypes"
+                     Width="173"
+                     Height="212"
+                     Margin="6,32,0,0"
+                     HorizontalAlignment="Left"
+                     VerticalAlignment="Top"
+                     IsSelected="True"
+                     SelectedIndex="0"   />
+
+        <ComboBox TabIndex="3" Name="StateVertical"   Style="{StaticResource EditableComboBoxStyle}"   HorizontalAlignment="Left" Margin="6,272,0,0"  VerticalAlignment="Top" Width="173"   IsSynchronizedWithCurrentItem="False" IsEditable="True" IsReadOnly="True" Height="23">
+
+
+
+        </ComboBox>
+
+
+
+
+
+
+
+
+        <Button TabIndex="8" Name="InsertButton"
+                    IsDefault="True"
+                    
+                    Margin="324,388,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Content="{x:Static properties:Resources.MatrixReport_Insert}"
+                    Style="{StaticResource MetroButton}" Click="InsertButtonClick" />
+
+        <Button TabIndex="9" Name="CancelButton"
+                    
+                    Margin="0,388,9,0"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+      
+                    Content="{x:Static properties:Resources.MatrixReport_Cancel}"
+                    Style="{StaticResource MetroButton}" Click="CancelButtonClick" />
+
+        <ListBox TabIndex="2" x:Name="HorizontalTypes"
+            	Width="173"
+            	Height="212"
+            	Margin="311,32,0,0"
+            	HorizontalAlignment="Left"
+            	VerticalAlignment="Top"
+            	SelectedIndex="0" />
+
+        <ComboBox TabIndex="4" x:Name="StateHorisontal" HorizontalAlignment="Right" Margin="0,272,10,0" VerticalAlignment="Top" Width="173" Style="{StaticResource EditableComboBoxStyle}" IsEditable="True" IsReadOnly="True" Height="23"/>
+
+        <ComboBox TabIndex="1" x:Name="Relateds"  HorizontalAlignment="Left" Margin="183,122,0,0" VerticalAlignment="Top" Width="122" Style="{StaticResource NonEditableComboBoxStyle}" Height="23"/>
+
+
+        <Label Content="{x:Static properties:Resources.MatrixReport_Rows}" HorizontalAlignment="Left" Margin="7,6,0,0" VerticalAlignment="Top" Height="26" Width="82"/>
+        <Label Content="{x:Static properties:Resources.MatrixReport_Columns}" HorizontalAlignment="Left" Margin="311,6,0,0" VerticalAlignment="Top" Height="26" Width="56"/>
+        <Label Content="{x:Static properties:Resources.MatrixReport_State}" HorizontalAlignment="Left" Margin="311,246,0,0" VerticalAlignment="Top" Height="26" Width="77" RenderTransformOrigin="0.865,0.423"/>
+        <Label Content="{x:Static properties:Resources.MatrixReport_State}" HorizontalAlignment="Left" Margin="6,246,0,0" VerticalAlignment="Top" Height="26" Width="110"/>
+        <Label Content="{x:Static properties:Resources.MatrixReport_Link_Type}" HorizontalAlignment="Left" Margin="183,91,0,0" VerticalAlignment="Top" Height="26" Width="122"/>
+
+        <CheckBox TabIndex="7" Content="{x:Static properties:Resources.MatrixReport_Include_Not_Linked_Items}" Name="chkIncludeNotLinked"  HorizontalAlignment="Left" Margin="12,392,0,0" VerticalAlignment="Top" IsChecked="False" Height="16" Width="208" />
+
+<Rectangle Fill="White" HorizontalAlignment="Left"  Margin="6,325,0,0" Stroke="#FF828790" VerticalAlignment="Top" Width="477" Height="50"  />
+        <Label Content="{x:Static properties:Resources.MatrixReport_Created_Date}" HorizontalAlignment="Left" Margin="6,301,0,0" VerticalAlignment="Top" Height="30" Width="305"/>
+           
+        
+        <Label Content="{x:Static properties:Resources.MatrixReport_To}" Margin="310,339,150,65"  />
+        <Label Content="{x:Static properties:Resources.MatrixReport_From}"  HorizontalAlignment="Left" Margin="7,336,0,0"  VerticalAlignment="Top"/>
+        <DatePicker TabIndex="5" HorizontalAlignment="Left" Name="dateFrom" Margin="51,337,0,0" VerticalAlignment="Top" Height="24" Width="128"  Loaded="DatePicker_Loaded" RenderOptions.BitmapScalingMode="NearestNeighbor" />
+        <DatePicker TabIndex="6" HorizontalAlignment="Right" Name="dateTo" Margin="0,339,23,0" VerticalAlignment="Top" Height="24" Width="128" Loaded="DatePicker_Loaded" RenderOptions.BitmapScalingMode="NearestNeighbor" />
+    </Grid>
+
+
+
+</Window>
+    
+    

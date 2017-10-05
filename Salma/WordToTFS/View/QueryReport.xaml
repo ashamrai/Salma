@@ -1,0 +1,141 @@
+﻿<Window x:Class="WordToTFSWordAddIn.Views.QueryReport"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+             xmlns:properties="clr-namespace:WordToTFS.Properties"
+             xmlns:view="clr-namespace:WordToTFS.View"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             Title="{x:Static properties:Resources.QueryReport_Title}"
+        
+            SizeToContent="WidthAndHeight" HorizontalContentAlignment="Center" WindowStartupLocation="CenterScreen" mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" d:DesignWidth="835" d:DesignHeight="680" >
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Style.xaml"></ResourceDictionary>
+                
+            </ResourceDictionary.MergedDictionaries>
+            <DataTemplate x:Key="ItemDataTemplate">
+                <CheckBox x:Name="checkbox" Content="{Binding}"  IsChecked="{Binding	RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListViewItem}}, Path=IsSelected, Mode=TwoWay}" />
+            </DataTemplate>
+
+            <Style TargetType="{x:Type ScrollViewer}">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type ScrollViewer}">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <ScrollContentPresenter Grid.Column="0"/>
+                                <ScrollBar Name="PART_VerticalScrollBar" Grid.Row="0" Grid.Column="1" Value="{TemplateBinding VerticalOffset}" Maximum="{TemplateBinding ScrollableHeight}" ViewportSize="{TemplateBinding ViewportHeight}" Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}"/>
+                                <ScrollBar Name="PART_HorizontalScrollBar" Orientation="Horizontal" Grid.Row="1" Grid.Column="0" Value="{TemplateBinding HorizontalOffset}" Maximum="{TemplateBinding ScrollableWidth}" ViewportSize="{TemplateBinding ViewportWidth}" Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}"/>
+                                <Rectangle Grid.Row="1" Grid.Column="1" Fill="#FFEDEDED"/>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </Window.Resources>
+
+
+    <Grid Width="823" Height="654" KeyboardNavigation.TabNavigation="Local">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="237*" />
+            <ColumnDefinition Width="36*" />
+            <ColumnDefinition Width="248*" />
+            <ColumnDefinition Width="302*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="251*" />
+            <RowDefinition Height="77*" />
+            <RowDefinition Height="260*" />
+            <RowDefinition Height="26*" />
+            <RowDefinition Height="23*" />
+            <RowDefinition Height="17*" />
+        </Grid.RowDefinitions>
+        <TabControl TabIndex="2" KeyboardNavigation.TabNavigation="Once" TabStripPlacement="Left" Grid.RowSpan="6" Height="668" HorizontalAlignment="Left" Margin="12,12,0,0" Name="tabControl1" BorderThickness="1,0,0,0" VerticalAlignment="Top" Width="506" Grid.ColumnSpan="3" SelectionChanged="tabControl1_SelectionChanged">
+            <TabControl.Background>
+                <ImageBrush />
+            </TabControl.Background>
+            <TabItem  Name="byQuetiesTabItem" Header="{x:Static properties:Resources.QueryReport_By_Queries_Tab}" Height="38" Width="200" Margin="0,15,0,-15" BorderBrush="Transparent">
+                <Grid Height="495" Width="260" Margin="0,-40,0,0">
+                    <TextBlock Margin="0,5,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="16">    
+             <TextBlock Text="{x:Static properties:Resources.QueryReport_List_Of_Queries}" /><TextBlock Text=" ("></TextBlock>
+    <Hyperlink Name="ManageQueriesLink" NavigateUri="http://www.google.com" RequestNavigate="Hyperlink_RequestNavigate">
+       <TextBlock  Text="{x:Static properties:Resources.QueryReport_Manage_Queries}" />
+    </Hyperlink>
+            <TextBlock Text=")"></TextBlock>
+            </TextBlock>
+                    <TreeView    Name="QueriesTree" Width="260" Height="468" Margin="0,27,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" SelectedItemChanged="SelectionChanged"  RenderOptions.BitmapScalingMode="NearestNeighbor"/>
+                </Grid>
+            </TabItem>
+            <TabItem  Name="byWIIDsTabItem" Header="{x:Static properties:Resources.QueryReport_By_WI_ID_Tab}" Height="38" Width="200" VerticalAlignment="Top" Margin="0,13,0,-13" BorderBrush="Transparent">                
+                    <Grid Height="575" Width="260" Margin="0,-40,0,0">
+                    <TextBox HorizontalAlignment="Left" Height="68" Margin="0,64,0,0" Name="wiIDsTextBox" BorderBrush="#444444" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="260" TextChanged="wiIDsTextBox_TextChanged" TextInput="wiIDsTextBox_TextInput" SelectionBrush="#FF444444" />                    
+                    <TextBlock Text="{x:Static properties:Resources.QueryReport_Work_Items_ID}" Height="16" Margin="0,42,0,0" VerticalAlignment="Top" />
+                    <ListView Height="353" HorizontalAlignment="Left" Margin="0,181,0,0" Name="foundItemsListView" VerticalAlignment="Top" HorizontalContentAlignment="Stretch" IsEnabled="True" BorderThickness="0,0,0,0" Width="260" ScrollViewer.HorizontalScrollBarVisibility="Disabled">                        
+                        
+                    </ListView>
+
+                    <Label Margin="0,544,0,-28" MaxWidth="300" Name="workItemNotCurrentProject">
+                        <TextBlock Text="{x:Static properties:Resources.QueryReport_Not_In_Current_Document_Message}" TextWrapping="Wrap" Foreground="Red" />
+                    </Label>
+                    <Label Margin="0,130,0,391"  MaxWidth="300" Name="label1">
+                        <TextBlock Text="{x:Static properties:Resources.QueryReport_Multiple_WI}" TextWrapping="Wrap" Foreground="#FF909090" Width="254" Height="40" />
+                    </Label>
+                </Grid>
+            </TabItem>
+        </TabControl>
+       
+
+        <Rectangle Fill="White" HorizontalAlignment="Left"  Margin="1,46,0,0" Stroke="#FF828790" VerticalAlignment="Top" Width="284" Height="526" Grid.RowSpan="3" Grid.Column="3" />
+
+        <Label Content="{x:Static properties:Resources.QueryReport_Header}" Name="lblHeader" HorizontalAlignment="Left" Margin="11,51,0,0" VerticalAlignment="Top" Grid.Column="3" />
+        <TextBox x:Name="tbxHeader" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="265" Margin="11,74,0,0"  IsEnabled="False" SelectionBrush="#FFE3E9EF" Grid.Column="3" />
+        <Label Content="{x:Static properties:Resources.QueryReport_Metadata}" Name="lblMetadata" HorizontalAlignment="Left" Margin="12,102,0,0" VerticalAlignment="Top" Grid.Column="3" />
+
+        <ListBox  x:Name="PropertiesList"
+                  
+        		Width="265"
+        		Height="217"
+        		HorizontalAlignment="Left"
+        		VerticalAlignment="Top"
+        		  Margin="11,128,0,0" IsSynchronizedWithCurrentItem="False" Grid.Column="3" Grid.RowSpan="3" />
+        <Label Content="{x:Static properties:Resources.QueryReport_Body_Text}" Name="lblBody" HorizontalAlignment="Left" Margin="13,37,0,0" VerticalAlignment="Top" Grid.Column="3" Grid.Row="2" Height="29" />
+        <ListBox  x:Name="PropertiesListBody"
+                 
+        		Width="263"
+        		Height="168"
+        		HorizontalAlignment="Left"
+        		VerticalAlignment="Top"
+        		  Margin="11,63,0,0" Grid.Column="3" Grid.Row="2" />
+        <TextBlock Text="{x:Static properties:Resources.QueryReport_Report_Format}" Margin="0,24,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="16" Grid.Column="3" />
+        <TextBlock Text="{x:Static properties:Resources.QueryReport_RevisionDate_Text}" Margin="0,24,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="16" Grid.ColumnSpan="2" Grid.Column="1" />
+        <DatePicker TabIndex="1" IsTabStop="False" Loaded="onDate_Loaded" Height="25" HorizontalAlignment="Left" Margin="0,0,0,180" Name="onDate" VerticalAlignment="Bottom" Width="259" Grid.ColumnSpan="2" Grid.Column="1" SelectedDateChanged="onDate_Selected" />
+        <CheckBox  x:Name="IncludeAttachmentsCheckBox" Content="{x:Static properties:Resources.QueryReport_Include_Attachments}"  HorizontalAlignment="Left" VerticalAlignment="Top"  IsChecked="False" Width="135" Grid.Row="3" Grid.Column="3" />
+        <Button  Name="InsertButton"
+                    IsDefault="True"
+                   
+                    SnapsToDevicePixels="True"
+                    Margin="130,0,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Content="{x:Static properties:Resources.QueryReport_Insert}"
+                    Style="{StaticResource MetroButton}" Click="InsertButtonClick" IsEnabled="False" Grid.Row="4" Grid.Column="3" />
+
+        <Button  Name="CancelButton"
+                   
+                    Margin="0,0,17,0"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    Content="{x:Static properties:Resources.QueryReport_Cancel}"
+                    Style="{StaticResource MetroButton}" Click="CancelButtonClick" Grid.Row="4" Grid.Column="3" />
+    </Grid>
+
+</Window>

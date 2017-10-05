@@ -1,0 +1,447 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AddDetails_Add_Label" xml:space="preserve">
+    <value>Добавить</value>
+  </data>
+  <data name="AddDetails_As_Label" xml:space="preserve">
+    <value>Добавить детали как</value>
+  </data>
+  <data name="AddDetails_Cancel_Label" xml:space="preserve">
+    <value>Отменить</value>
+  </data>
+  <data name="AddDetails_Choose_Work_Item_Label" xml:space="preserve">
+    <value>Выбрать рабочий элемент</value>
+  </data>
+  <data name="AddDetails_Filter_Work_Items_By_Type_Label" xml:space="preserve">
+    <value>Фильтровать элементы по типу</value>
+  </data>
+  <data name="AddDetails_Replace_Label" xml:space="preserve">
+    <value>Заменить</value>
+  </data>
+  <data name="AddDetails_Title" xml:space="preserve">
+    <value>Добавить детали к рабочему элементу</value>
+  </data>
+  <data name="Connect_Cancel_Label" xml:space="preserve">
+    <value>Отмена</value>
+  </data>
+  <data name="Connect_Login_Label" xml:space="preserve">
+    <value>Войти</value>
+  </data>
+  <data name="Connect_Password_Label" xml:space="preserve">
+    <value>Пароль</value>
+  </data>
+  <data name="Connect_Title" xml:space="preserve">
+    <value>Соединение</value>
+  </data>
+  <data name="Connect_User_Name_Label" xml:space="preserve">
+    <value>Имя пользователя</value>
+  </data>
+  <data name="CreateNew_Cancel_Label" xml:space="preserve">
+    <value>Отменить</value>
+  </data>
+  <data name="CreateNew_Create_Label" xml:space="preserve">
+    <value>Создать</value>
+  </data>
+  <data name="CreateNew_Title" xml:space="preserve">
+    <value>Создать новый рабочий элемент</value>
+  </data>
+  <data name="CreateNew_Title_Label" xml:space="preserve">
+    <value>Заголовок</value>
+  </data>
+  <data name="CreateNew_Work_Item_Type_Label" xml:space="preserve">
+    <value>Тип рабочего элемента</value>
+  </data>
+  <data name="DatePickerWatermark" xml:space="preserve">
+    <value>Выберите дату</value>
+  </data>
+  <data name="ERROR_MESSAGE_UNABLE_TO_CREATE_ITEM_WITH_REQUIRED_FIELD" xml:space="preserve">
+    <value>Невозможно создать рабочий элемент. Элемент содержит обязательные поля '{0}', которые должны быть заполнены.</value>
+  </data>
+  <data name="LinkItem_Cancel_Label" xml:space="preserve">
+    <value>Отмена</value>
+  </data>
+  <data name="LinkItem_Comments" xml:space="preserve">
+    <value>Комментарии</value>
+  </data>
+  <data name="LinkItem_Existing_Document" xml:space="preserve">
+    <value>Текущий документ</value>
+  </data>
+  <data name="LinkItem_Filter_Work_Items_By_Type_Label" xml:space="preserve">
+    <value>Фильтровать элементы по типу</value>
+  </data>
+  <data name="LinkItem_HyperLink" xml:space="preserve">
+    <value>Гиперссылка</value>
+  </data>
+  <data name="LinkItem_Hyperlink_LABEL" xml:space="preserve">
+    <value>Гиперссылка</value>
+  </data>
+  <data name="LinkItem_LinkItem_Label" xml:space="preserve">
+    <value>Связать</value>
+  </data>
+  <data name="LinkItem_Link_Item_As" xml:space="preserve">
+    <value>Связать как</value>
+  </data>
+  <data name="LinkItem_Outside_Document" xml:space="preserve">
+    <value>Вне документа</value>
+  </data>
+  <data name="LinkItem_Title" xml:space="preserve">
+    <value>Связать элемент</value>
+  </data>
+  <data name="LinkItem_Work_Item_IDs" xml:space="preserve">
+    <value>Идентификаторы рабочего элемента</value>
+  </data>
+  <data name="LinkItem_Work_Item_Type" xml:space="preserve">
+    <value>Тип рабочего элемента</value>
+  </data>
+  <data name="MatrixReport_Cancel" xml:space="preserve">
+    <value>Отмена</value>
+  </data>
+  <data name="MatrixReport_Columns" xml:space="preserve">
+    <value>Колонки</value>
+  </data>
+  <data name="MatrixReport_Created_Date" xml:space="preserve">
+    <value>Дата создания</value>
+  </data>
+  <data name="MatrixReport_From" xml:space="preserve">
+    <value>    От</value>
+  </data>
+  <data name="MatrixReport_Include_Not_Linked_Items" xml:space="preserve">
+    <value>Включать не связанные элементы</value>
+  </data>
+  <data name="MatrixReport_Insert" xml:space="preserve">
+    <value>Вставить</value>
+  </data>
+  <data name="MatrixReport_Link_Type" xml:space="preserve">
+    <value>Тип связи</value>
+  </data>
+  <data name="MatrixReport_Rows" xml:space="preserve">
+    <value>Строки</value>
+  </data>
+  <data name="MatrixReport_State" xml:space="preserve">
+    <value>Состояние</value>
+  </data>
+  <data name="MatrixReport_Title" xml:space="preserve">
+    <value>Матрица трассировки</value>
+  </data>
+  <data name="MatrixReport_To" xml:space="preserve">
+    <value>До</value>
+  </data>
+  <data name="MESSAGE_ITEMS_WITH_DEFAULT_FIELDS" xml:space="preserve">
+    <value>Следующие обязательные поля будут заполнены значениями по умолчанию:</value>
+  </data>
+  <data name="Progress_Stop" xml:space="preserve">
+    <value>Стоп</value>
+  </data>
+  <data name="QueryReport_Body_Text" xml:space="preserve">
+    <value>Основной текст</value>
+  </data>
+  <data name="QueryReport_Cancel" xml:space="preserve">
+    <value>Отмена</value>
+  </data>
+  <data name="QueryReport_Header" xml:space="preserve">
+    <value>Заголовок</value>
+  </data>
+  <data name="QueryReport_Include_Attachments" xml:space="preserve">
+    <value>Добавить вложения</value>
+  </data>
+  <data name="QueryReport_Insert" xml:space="preserve">
+    <value>Вставить</value>
+  </data>
+  <data name="QueryReport_List_Of_Queries" xml:space="preserve">
+    <value>Список запросов</value>
+  </data>
+  <data name="QueryReport_Manage_Queries" xml:space="preserve">
+    <value>Управление запросами</value>
+  </data>
+  <data name="QueryReport_Metadata" xml:space="preserve">
+    <value>Метаданные</value>
+  </data>
+  <data name="QueryReport_Report_Format" xml:space="preserve">
+    <value>Формат отчёта</value>
+  </data>
+  <data name="QueryReport_Title" xml:space="preserve">
+    <value>Отчёт</value>
+  </data>
+  <data name="AddDetails_By_Work_Item_ID_Tab" xml:space="preserve">
+    <value>По номеру рабочего элемента</value>
+  </data>
+  <data name="AddDetails_Current_Document_Tab" xml:space="preserve">
+    <value>Текущий документ</value>
+  </data>
+  <data name="AddDetails_Work_Item_ID" xml:space="preserve">
+    <value>Идентификатор рабочего элемента</value>
+  </data>
+  <data name="QueryReport_By_Queries_Tab" xml:space="preserve">
+    <value>По запросу</value>
+  </data>
+  <data name="QueryReport_By_WI_ID_Tab" xml:space="preserve">
+    <value>По рабочим элементам</value>
+  </data>
+  <data name="QueryReport_Work_Items_ID" xml:space="preserve">
+    <value>Идентификатор рабочего элемента</value>
+  </data>
+  <data name="StepActionsResult_Action_Label" xml:space="preserve">
+    <value>Действие</value>
+  </data>
+  <data name="StepActionsResult_Add_Button" xml:space="preserve">
+    <value>Добавить</value>
+  </data>
+  <data name="StepActionsResult_Cancel_Button" xml:space="preserve">
+    <value>Отменить</value>
+  </data>
+  <data name="StepActionsResult_Expected_Result_Label" xml:space="preserve">
+    <value>Ожидаемый результат</value>
+  </data>
+  <data name="StepActionsResult_Title" xml:space="preserve">
+    <value>Добавление шага</value>
+  </data>
+  <data name="SeeAttachments_Text" xml:space="preserve">
+    <value>Cмотрите вложенные файлы</value>
+  </data>
+  <data name="QueryReport_RevisionDate_Text" xml:space="preserve">
+    <value>Дата ревизии</value>
+  </data>
+  <data name="LinkItem_Choose_Work_Item" xml:space="preserve">
+    <value>Выберите рабочий елемент</value>
+  </data>
+  <data name="QueryReport_Not_In_Current_Document_Message" xml:space="preserve">
+    <value>*Рабочие элементы не принадлежащие к текущему проекту, не будут включены в отчёт .</value>
+  </data>
+  <data name="RequiredFields_Fields_plural" xml:space="preserve">
+    <value>Поля</value>
+  </data>
+  <data name="RequiredFields_Fields_singular" xml:space="preserve">
+    <value>Поле</value>
+  </data>
+  <data name="RequiredFields_Must_Contain_Numeric_Value_plural" xml:space="preserve">
+    <value>должны содержать числовое значение</value>
+  </data>
+  <data name="RequiredFields_Must_Contain_Numeric_Value_singular" xml:space="preserve">
+    <value>должно содержать числовое значение</value>
+  </data>
+  <data name="RequiredFields_Required_plural" xml:space="preserve">
+    <value>не могут быть пустыми</value>
+  </data>
+  <data name="RequiredFields_Required_singular" xml:space="preserve">
+    <value>не может быть пустым</value>
+  </data>
+  <data name="QueryReport_Multiple_WI" xml:space="preserve">
+    <value>Вы можете указать несколько элементов, разделяя запятой.</value>
+  </data>
+  <data name="MatrixReport_Date" xml:space="preserve">
+    <value>Данные</value>
+  </data>
+  <data name="MatrixReport_Date_From" xml:space="preserve">
+    <value>Данные от</value>
+  </data>
+  <data name="MatrixReport_Date_To" xml:space="preserve">
+    <value>Данные до</value>
+  </data>
+  <data name="lblFormatCorruptedLabel" xml:space="preserve">
+    <value>Ошибка формата</value>
+  </data>
+  <data name="UpdateDialog_Cancel_Button" xml:space="preserve">
+    <value>Нет</value>
+  </data>
+  <data name="UpdateDialog_CheckBox" xml:space="preserve">
+    <value>Импортировать  содержимое</value>
+  </data>
+  <data name="UpdateDialog_Message" xml:space="preserve">
+    <value>SALMA собирается принять все отслеживаемые изменения в этом документе. Продолжить?</value>
+  </data>
+  <data name="UpdateDialog_Ok_Button" xml:space="preserve">
+    <value>Да</value>
+  </data>
+  <data name="UpdateDialog_Title" xml:space="preserve">
+    <value>SALMA – Принять все изменения</value>
+  </data>
+  <data name="ErrorDialog_Ok_Button" xml:space="preserve">
+    <value>Ok</value>
+  </data>
+  <data name="ErrorDialog_Title" xml:space="preserve">
+    <value>Сообщение</value>
+  </data>
+  <data name="ExportDialog_Cancel_Button" xml:space="preserve">
+    <value>Нет</value>
+  </data>
+  <data name="ExportDialog_Message" xml:space="preserve">
+    <value>SALMA собирается принять все отслеживаемые изменения в этом документе. Продолжить?</value>
+  </data>
+  <data name="ExportDialog_Ok_Button" xml:space="preserve">
+    <value>Да</value>
+  </data>
+  <data name="ExportDialog_Title" xml:space="preserve">
+    <value>SALMA – Принять все изменения</value>
+  </data>
+  <data name="ImportDialog_Cancel_Button" xml:space="preserve">
+    <value>Отмена</value>
+  </data>
+  <data name="ImportDialog_Import_Button" xml:space="preserve">
+    <value>Импорт</value>
+  </data>
+  <data name="ImportDialog_Title" xml:space="preserve">
+    <value>Импорт элементов</value>
+  </data>
+  <data name="ImporteDialog_CheckBox" xml:space="preserve">
+    <value>Создавать элемент управления для пустого описания</value>
+  </data>
+  <data name="ObsoleteWorkItem_Label_Item" xml:space="preserve">
+    <value>Метка устаревшего рабочего элемента</value>
+  </data>
+  <data name="ObsoleteWorkItem_Tag_Item" xml:space="preserve">
+    <value>Добавить к тегам</value>
+  </data>
+  <data name="ObsoleteWorkItem_Title_Item" xml:space="preserve">
+    <value>Добавить к заголовку</value>
+  </data>
+  <data name="ObsoleteWorkItem_Label_Links" xml:space="preserve">
+    <value>Связи</value>
+  </data>
+  <data name="ObsoleteWorkItem_Cancel_Lablel" xml:space="preserve">
+    <value>Отмена</value>
+  </data>
+  <data name="ObsoleteWorkItem_Ok_Label" xml:space="preserve">
+    <value>Да</value>
+  </data>
+  <data name="ObsoleteWorkItem_Title" xml:space="preserve">
+    <value>Дублировать элемент</value>
+  </data>
+  <data name="Obolete_List_Item_Copy" xml:space="preserve">
+    <value>Копировать</value>
+  </data>
+  <data name="Obolete_List_Item_Move" xml:space="preserve">
+    <value>Перенести</value>
+  </data>
+  <data name="Obsolete_List_Action_Title" xml:space="preserve">
+    <value>Действие</value>
+  </data>
+  <data name="Obsolete_List_WIId_Title" xml:space="preserve">
+    <value>ИД</value>
+  </data>
+  <data name="Obsolete_List_WILink_Title" xml:space="preserve">
+    <value>Тип связи</value>
+  </data>
+  <data name="Obsolete_List_WITitle_Title" xml:space="preserve">
+    <value>Наименование</value>
+  </data>
+  <data name="Obsolete_List_WIType_Title" xml:space="preserve">
+    <value>Тип элемента</value>
+  </data>
+</root>

@@ -1,0 +1,28 @@
+﻿<Window 
+        x:Class="WordToTFSWordAddIn.Views.ImportDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:properties="clr-namespace:WordToTFS.Properties"
+        Closing="DataWindowClosed"  
+        WindowStartupLocation="CenterOwner"
+        Title="{x:Static properties:Resources.ImportDialog_Title}"
+        SizeToContent="Manual" HorizontalContentAlignment="Center" 
+        mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        Height="500" Width="620" >
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Style.xaml"></ResourceDictionary>
+
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid Margin="0,66,2,0">
+        <WindowsFormsHost Name="windowsFormsHost1" Height="420" Width="580" Margin="10,-62,10,50"/>
+        <Button Name="importButton" Margin="0,0,95,8" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="{x:Static properties:Resources.ImportDialog_Import_Button}" Style="{StaticResource MetroButton}" Click="importButton_Click"/>
+        <Button Name="cancelButton" IsEnabled="True" Margin="0,0,5,8" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="{x:Static properties:Resources.ImportDialog_Cancel_Button}" Style="{StaticResource MetroButton}" Click="cancelButton_Click" />
+        <CheckBox Name="contentImportCheckBox" Content="{x:Static properties:Resources.ImporteDialog_CheckBox}"  HorizontalAlignment="Left" Margin="7,0,0,12" VerticalAlignment="Bottom" IsChecked="False"/>
+    </Grid>
+</Window>

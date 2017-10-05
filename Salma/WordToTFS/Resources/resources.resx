@@ -1,0 +1,273 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AddDetails_Add_Label" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="AddDetails_As_Label" xml:space="preserve">
+    <value>Add details as</value>
+  </data>
+  <data name="AddDetails_Cancel_Label" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="AddDetails_Choose_Work_Item_Label" xml:space="preserve">
+    <value>Choose Work Item:</value>
+  </data>
+  <data name="AddDetails_Filter_Work_Items_By_Type_Label" xml:space="preserve">
+    <value>Filter work items by type</value>
+  </data>
+  <data name="AddDetails_Replace_Label" xml:space="preserve">
+    <value>Replace</value>
+  </data>
+  <data name="AddDetails_Title" xml:space="preserve">
+    <value>Add details to work item</value>
+  </data>
+  <data name="Connect_Cancel_Label" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Connect_Login_Label" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="Connect_Password_Label" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="Connect_Title" xml:space="preserve">
+    <value>Connect</value>
+  </data>
+  <data name="Connect_User_Name_Label" xml:space="preserve">
+    <value>User Name</value>
+  </data>
+  <data name="CreateNew_Cancel_Label" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="CreateNew_Create_Label" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="CreateNew_Title" xml:space="preserve">
+    <value>Create new work item</value>
+  </data>
+  <data name="CreateNew_Title_Label" xml:space="preserve">
+    <value>Title:</value>
+  </data>
+  <data name="CreateNew_Work_Item_Type_Label" xml:space="preserve">
+    <value>Work Item Type:</value>
+  </data>
+  <data name="DatePickerWatermark" xml:space="preserve">
+    <value>Select a date</value>
+  </data>
+  <data name="LinkItem_Cancel_Label" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="LinkItem_Comments" xml:space="preserve">
+    <value>Comments:</value>
+  </data>
+  <data name="LinkItem_Existing_Document" xml:space="preserve">
+    <value>Existing Document</value>
+  </data>
+  <data name="LinkItem_Filter_Work_Items_By_Type_Label" xml:space="preserve">
+    <value>Filter work items by type</value>
+  </data>
+  <data name="LinkItem_HyperLink" xml:space="preserve">
+    <value>Hyperlink</value>
+  </data>
+  <data name="LinkItem_LinkItem_Label" xml:space="preserve">
+    <value>Link Item</value>
+  </data>
+  <data name="LinkItem_Link_Item_As" xml:space="preserve">
+    <value>Link Item as:</value>
+  </data>
+  <data name="LinkItem_Outside_Document" xml:space="preserve">
+    <value>Outside Document</value>
+  </data>
+  <data name="LinkItem_Title" xml:space="preserve">
+    <value>Link Item to</value>
+  </data>
+  <data name="LinkItem_Work_Item_IDs" xml:space="preserve">
+    <value>Work Item ID's:</value>
+  </data>
+  <data name="LinkItem_Work_Item_Type" xml:space="preserve">
+    <value>Work Item Type:</value>
+  </data>
+  <data name="MatrixReport_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="MatrixReport_Columns" xml:space="preserve">
+    <value>Columns</value>
+  </data>
+  <data name="MatrixReport_Created_Date" xml:space="preserve">
+    <value>Created Date</value>
+  </data>
+  <data name="MatrixReport_From" xml:space="preserve">
+    <value>From:</value>
+  </data>
+  <data name="MatrixReport_Include_Not_Linked_Items" xml:space="preserve">
+    <value>Include not linked items</value>
+  </data>
+  <data name="MatrixReport_Insert" xml:space="preserve">
+    <value>Insert</value>
+  </data>
+  <data name="MatrixReport_Link_Type" xml:space="preserve">
+    <value>Link Type</value>
+  </data>
+  <data name="MatrixReport_Rows" xml:space="preserve">
+    <value>Rows</value>
+  </data>
+  <data name="MatrixReport_State" xml:space="preserve">
+    <value>State</value>
+  </data>
+  <data name="MatrixReport_Title" xml:space="preserve">
+    <value>Matrix Report</value>
+  </data>
+  <data name="MatrixReport_To" xml:space="preserve">
+    <value>To:</value>
+  </data>
+  <data name="Progress_Stop" xml:space="preserve">
+    <value>Stop</value>
+  </data>
+  <data name="QueryReport_Body_Text" xml:space="preserve">
+    <value>Body Text</value>
+  </data>
+  <data name="QueryReport_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="QueryReport_Header" xml:space="preserve">
+    <value>Header</value>
+  </data>
+  <data name="QueryReport_Include_Attachments" xml:space="preserve">
+    <value>Include Attachments</value>
+  </data>
+  <data name="QueryReport_Insert" xml:space="preserve">
+    <value>Insert</value>
+  </data>
+  <data name="QueryReport_List_Of_Queries" xml:space="preserve">
+    <value>List of Queries</value>
+  </data>
+  <data name="QueryReport_Manage_Queries" xml:space="preserve">
+    <value>Manage Queries</value>
+  </data>
+  <data name="QueryReport_Metadata" xml:space="preserve">
+    <value>Metadata</value>
+  </data>
+  <data name="QueryReport_Report_Format" xml:space="preserve">
+    <value>Report Format</value>
+  </data>
+  <data name="QueryReport_Title" xml:space="preserve">
+    <value>Query Report</value>
+  </data>
+</root>

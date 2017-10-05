@@ -1,0 +1,312 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ERROR_TEXT" xml:space="preserve">
+    <value>Ошибка</value>
+  </data>
+  <data name="LBOX_ITEM_DESCRIPTION" xml:space="preserve">
+    <value>Описание</value>
+  </data>
+  <data name="LBOX_ITEM_SELECT_ALL" xml:space="preserve">
+    <value>Все</value>
+  </data>
+  <data name="MATRIX_PROGRESS" xml:space="preserve">
+    <value>Генерация Матрицы трассировки: Страница {0} из {1}</value>
+  </data>
+  <data name="MSG_CONNECTION_URL_IS_EMPTY" xml:space="preserve">
+    <value>Строка соединения не определена.</value>
+  </data>
+  <data name="MSG_CONNECTION_URL_IS_INCORRECT" xml:space="preserve">
+    <value>Строка соединения не в верном формате, либо TFS сервер недоступен.</value>
+  </data>
+  <data name="MSG_CORRECT_HYPERLINK" xml:space="preserve">
+    <value>Введите гиперссылку в правильном формате</value>
+  </data>
+  <data name="MSG_NOT_SELECTED_WORK_ITEM" xml:space="preserve">
+    <value>Не выбрано рабочего элемента.</value>
+  </data>
+  <data name="MSG_DATA_NOT_AVAILABLE" xml:space="preserve">
+    <value>Нет данных для этого запроса!</value>
+  </data>
+  <data name="MSG_DATE_FROM_BIGGER_THAN_TO" xml:space="preserve">
+    <value>Ошибка: Дата 'От' не может превышать дату 'До'.</value>
+  </data>
+  <data name="MSG_GENERATING_TRACEABILITY_MATRIX" xml:space="preserve">
+    <value>Формирование Матрицы трассировки: Страница {0} из {1}</value>
+  </data>
+  <data name="MSG_INPUT_VALUE_INCORRECT" xml:space="preserve">
+    <value>• Значение \"{0}\" не верно.</value>
+  </data>
+  <data name="MSG_ITEM_IS_NOT_EXISTS_IN_TFS" xml:space="preserve">
+    <value>Элемент с ID:{0} не существует в TFS</value>
+  </data>
+  <data name="MSG_ITEM_IS_NOT_FOUND" xml:space="preserve">
+    <value>• Элемент {0} не найден.</value>
+  </data>
+  <data name="MSG_NOT_SELECTED" xml:space="preserve">
+    <value>Not Selected</value>
+  </data>
+  <data name="MSG_REPORT_TITLE" xml:space="preserve">
+    <value>Отчёт</value>
+  </data>
+  <data name="MSG_RETRIEVING_DATA" xml:space="preserve">
+    <value>Передача данных...</value>
+  </data>
+  <data name="MSG_RETRIEVING_WORK_ITEMS" xml:space="preserve">
+    <value>Передача рабочих элементов...</value>
+  </data>
+  <data name="MSG_TITLE_IS_EMPTY" xml:space="preserve">
+    <value>Название пустое.</value>
+  </data>
+  <data name="MSG_TRACEBILITY_MATRIX" xml:space="preserve">
+    <value>{0} Матрица трассировки</value>
+  </data>
+  <data name="MSG_WORK_ITEM_NO" xml:space="preserve">
+    <value>Рабочий элемент {0}/{1}: {2}</value>
+  </data>
+  <data name="REPORT_PROGRESS" xml:space="preserve">
+    <value>Элемент {0}/{1}: {2}</value>
+  </data>
+  <data name="WORD_HEADING_RESOURCE" xml:space="preserve">
+    <value>Заголовок</value>
+  </data>
+  <data name="WORD_MATRIX_TABLE_RESOURCE" xml:space="preserve">
+    <value>Таблица-сетка 6 цветная — акцент 5</value>
+  </data>
+  <data name="WORD_NORMAL_RESOURCE" xml:space="preserve">
+    <value>Обычный</value>
+  </data>
+  <data name="WORD_TITLE_RESOURCE" xml:space="preserve">
+    <value>Название</value>
+  </data>
+  <data name="WORD_TRACEABILITY_MATRIX" xml:space="preserve">
+    <value>Матрица трассировки</value>
+  </data>
+  <data name="MSG_TFS_SERVER_IS_INACCESSIBLE" xml:space="preserve">
+    <value>Не удается подключиться к этому Team Foundation серверу:</value>
+  </data>
+  <data name="NOT_IN_CURRENT_DOCUMENT" xml:space="preserve">
+    <value>(Не в текущем проекте)*</value>
+  </data>
+  <data name="CREATED_BY" xml:space="preserve">
+    <value>Cоздано: </value>
+  </data>
+  <data name="FOR" xml:space="preserve">
+    <value>для:</value>
+  </data>
+  <data name="FOR_WI_ID" xml:space="preserve">
+    <value>для: Идентификатор:</value>
+  </data>
+  <data name="PROJECT" xml:space="preserve">
+    <value>Проект: </value>
+  </data>
+  <data name="SEE_ATTACHEMENTS" xml:space="preserve">
+    <value>смотрите приложения :</value>
+  </data>
+  <data name="STATE" xml:space="preserve">
+    <value>Статус: </value>
+  </data>
+  <data name="TITLE" xml:space="preserve">
+    <value>Название: </value>
+  </data>
+  <data name="TYPE" xml:space="preserve">
+    <value>Тип: </value>
+  </data>
+  <data name="WI_ID" xml:space="preserve">
+    <value>Идентификатор:</value>
+  </data>
+  <data name="ALL" xml:space="preserve">
+    <value>Все</value>
+  </data>
+  <data name="CUSTOM" xml:space="preserve">
+    <value>Выборочно</value>
+  </data>
+  <data name="NOT_SELECTED" xml:space="preserve">
+    <value>Не выбрано</value>
+  </data>
+  <data name="MSG_ERROR_DATE" xml:space="preserve">
+    <value>Ошибка: Дата 'От' не может быть больше, чем 'До'.</value>
+  </data>
+  <data name="WORD_PEPORT_ACTION" xml:space="preserve">
+    <value>Действие</value>
+  </data>
+  <data name="WORD_PEPORT_EXPECTED_RESULT" xml:space="preserve">
+    <value>Ожидаемый результат</value>
+  </data>
+  <data name="WORD_REPORT_ATTACHMENTS" xml:space="preserve">
+    <value>Вложения:</value>
+  </data>
+  <data name="FIELD" xml:space="preserve">
+    <value>Поле: </value>
+  </data>
+  <data name="ID" xml:space="preserve">
+    <value>Идентификатор: </value>
+  </data>
+  <data name="CANCEL" xml:space="preserve">
+    <value>Закрыть</value>
+  </data>
+  <data name="SELECTWORKITEMS" xml:space="preserve">
+    <value>Выберите элементы</value>
+  </data>
+  <data name="PROGRESSPERFORMING" xml:space="preserve">
+    <value>Выполнение...</value>
+  </data>
+  <data name="MSG_ERROR_PROCESS_WI" xml:space="preserve">
+    <value>Ошибка при обработке элемента:  </value>
+  </data>
+  <data name="MSG_PROGRESS" xml:space="preserve">
+    <value>Элемент {0}/{1}: {2}</value>
+  </data>
+  <data name="MSG_ERROR_ADD_WI" xml:space="preserve">
+    <value>Ошибка при создании элемента</value>
+  </data>
+  <data name="MSG_ERROR_EXPORT_WI" xml:space="preserve">
+    <value>Ошибка при екпорте элемента: </value>
+  </data>
+  <data name="MSG_ERROR_IMPORT_WIS" xml:space="preserve">
+    <value>Ошибка при импорте элементов: </value>
+  </data>
+  <data name="MSG_ERROR_OPEN_WI" xml:space="preserve">
+    <value>Ошибка при открытии элемента</value>
+  </data>
+  <data name="MSG_ERROR_PROCESS_WIS" xml:space="preserve">
+    <value>Ошибка при обработке элементов: </value>
+  </data>
+  <data name="MSG_ERROR_REPLACE_WI" xml:space="preserve">
+    <value>Ошибка при редактировании элемента</value>
+  </data>
+  <data name="MSG_EXPORT_WI_TITLE" xml:space="preserve">
+    <value>Экспорт элемента</value>
+  </data>
+  <data name="MSG_IMPORT_WIS_TITLE" xml:space="preserve">
+    <value>Импорт элементов</value>
+  </data>
+  <data name="MSG_UPDATE_WIS_TITLE" xml:space="preserve">
+    <value>Обновление статуса элементов</value>
+  </data>
+  <data name="MSG_CREATE_WI_TITLE" xml:space="preserve">
+    <value>Создание элемента</value>
+  </data>
+  <data name="MSG_EDIT_WI_TITLE" xml:space="preserve">
+    <value>Редактирование элемента</value>
+  </data>
+  <data name="MSG_ERROR_OBSOLETE_WI" xml:space="preserve">
+    <value>Ошибка дублирования элемента</value>
+  </data>
+</root>

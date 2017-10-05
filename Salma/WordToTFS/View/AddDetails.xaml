@@ -1,0 +1,106 @@
+﻿<Window 
+         x:Class="WordToTFSWordAddIn.Views.AddDetails"
+        
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:properties="clr-namespace:WordToTFS.Properties"
+        WindowStartupLocation="CenterScreen"
+        Title="{x:Static properties:Resources.AddDetails_Title}"
+             SizeToContent="WidthAndHeight" HorizontalContentAlignment="Center" mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" d:DesignWidth="651" d:DesignHeight="508">
+   
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Style.xaml"></ResourceDictionary>
+                
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    
+    <Grid Height="476" Width="640">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="118*" />
+            <ColumnDefinition Width="99*" />
+            <ColumnDefinition Width="10*" />
+            <ColumnDefinition Width="4*" />
+            <ColumnDefinition Width="113*" />
+            <ColumnDefinition Width="296*" />
+        </Grid.ColumnDefinitions>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="432*" />
+            <RowDefinition Height="30*" />
+            <RowDefinition Height="0" />
+            <RowDefinition Height="14" />
+        </Grid.RowDefinitions>
+        <Button Name="addButton"
+                    TabIndex="4"
+                    IsDefault="True"
+                    IsEnabled="False"
+                    Margin="41,7,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Click="AddButtonClick"
+                    Content="{x:Static properties:Resources.AddDetails_Add_Label}"
+                    Style="{StaticResource MetroButton}" Grid.Row="1" Grid.Column="5" />
+        <Button Name="replaceButton"
+                    IsEnabled="True"
+                    TabIndex="5"
+                    Margin="122,7,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Click="ReplaceButtonClick"
+                    Content="{x:Static properties:Resources.AddDetails_Replace_Label}"
+                    Style="{StaticResource MetroButton}" Grid.Row="1" Grid.Column="5" />
+        <Button Name="cancelButton"
+                    TabIndex="6"
+                    Margin="0,7,18,0"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    Click="CancelButtonClick"
+                    Content="{x:Static properties:Resources.AddDetails_Cancel_Label}"
+                    Style="{StaticResource MetroButton}" Grid.Row="1" Grid.Column="5" />
+        <ComboBox x:Name="comboAddDetailsAs"
+        	Width="200"
+                  TabIndex="3"
+        	HorizontalAlignment="Left"
+        	VerticalAlignment="Top"
+        	Margin="0,398,0,0"
+                  IsEnabled="False"
+        	Style="{StaticResource NonEditableComboBoxStyle}" Grid.Column="3" Grid.ColumnSpan="3" DropDownClosed="ComboAddDetailsAs_DropDownClosed" />
+        <Label x:Name="labelAddDetailsAs" Margin="0,374,0,30"
+        	HorizontalAlignment="Left" Content="{x:Static properties:Resources.AddDetails_As_Label}" Grid.Column="3" Grid.ColumnSpan="3" Width="143" />
+        <TabControl TabStripPlacement="Left" HorizontalAlignment="Left" Margin="12,12,0,55" Name="tabControl1" BorderThickness="1,0,0,0" Width="622" Grid.ColumnSpan="6" SelectionChanged="TabControl_SelectionChanged">
+            <TabControl.Background>
+                <ImageBrush/>
+            </TabControl.Background>
+            <TabItem Name="currentDocumentTabItem" TabIndex="0" Header="{x:Static properties:Resources.AddDetails_Current_Document_Tab}" Height="38" Width="200" Margin="0,0,0,-15" BorderBrush="Transparent" >
+                <Grid Height="358" Width="407">
+
+                    <Label Name="label1" Height="28" Margin="6,0,0,271" HorizontalAlignment="Left" VerticalAlignment="Bottom" Content="{x:Static properties:Resources.AddDetails_Choose_Work_Item_Label}" />
+                    <ComboBox Name="filterBox"  TabIndex="1" Focusable="True" Width="200" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="6,30,0,0" Style="{StaticResource NonEditableComboBoxStyle}"/>
+                    <ListBox Name="listBox1" TabIndex="2" ItemContainerStyle="{StaticResource ListStyle}" Width="395" Height="266" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="6,86,0,0" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemTemplate="{StaticResource itemTemplate}" ItemsSource="{Binding}" SelectedIndex="-1" />
+                    <Label x:Name="filterlabel" Height="25" Margin="6,2,0,330" HorizontalAlignment="Left" Content="{x:Static properties:Resources.AddDetails_Filter_Work_Items_By_Type_Label}" />
+                </Grid>
+            </TabItem>
+            <TabItem Name="byWorkItemIDTabItem" TabIndex="0" Header="{x:Static properties:Resources.AddDetails_By_Work_Item_ID_Tab}" Height="38" Width="200" Margin="0,0,0,-15" BorderBrush="Transparent" >
+                <Grid>
+                    <TextBox Height="29" TabIndex="1" HorizontalAlignment="Left" Margin="6,32,0,0" BorderBrush="#444444" Name="workItemID" VerticalAlignment="Top" Width="400" TextChanged="workItemID_TextChanged" SelectionBrush="#FF444444" />
+                    <Label Content="{x:Static properties:Resources.AddDetails_Work_Item_ID}" Height="25" HorizontalAlignment="Left" Margin="6,2,0,0" Name="label2" VerticalAlignment="Top" />
+                    <ListBox Height="275" HorizontalAlignment="Left" Margin="6,76,0,0" Name="foundItemsListView" 
+                             VerticalAlignment="Top" BorderThickness="0,0,0,0" Width="399" ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
+                             ItemTemplate="{StaticResource itemTemplate}"  >
+                        <ListBox.ItemContainerStyle>
+                            <Style TargetType="{x:Type ListBoxItem}">
+                                <Setter Property="Focusable" Value="False"/>
+                            </Style>
+                        </ListBox.ItemContainerStyle>
+                    </ListBox>
+                </Grid>
+                
+            </TabItem>
+        </TabControl>
+    </Grid>
+
+</Window>

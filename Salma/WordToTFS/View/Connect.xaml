@@ -1,0 +1,75 @@
+﻿<Window x:Class="WordToTFSWordAddIn.Views.Connect"
+             
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:properties="clr-namespace:WordToTFS.Properties"
+        WindowStartupLocation="CenterScreen"
+        Title="{x:Static properties:Resources.AddDetails_Title}"
+             Height="200" Width="300">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Style.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    
+        <Grid Width="{Binding ElementName=UserControl, Path=Width}" Height="{Binding ElementName=UserControl, Path=Height}">
+            <Label Name="label1"
+                   Height="28"
+                   Margin="6,27,0,0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   Content="User" />
+
+            <TextBox Name="loginNameBox"
+                     Width="199"
+                     Height="23"
+                     Margin="79,27,0,0"
+                     HorizontalAlignment="Left"
+                     VerticalAlignment="Top"
+                     TabIndex="1" />
+
+            <Label Name="label2"
+                   Height="28"
+                   Margin="6,64,0,0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   Content="Pass"
+                    />
+
+            <PasswordBox Name="passwordBox"
+                         Width="199"
+                         Height="23"
+                         Margin="79,64,0,0"
+                         HorizontalAlignment="Left"
+                         VerticalAlignment="Top"
+                         TabIndex="2" />
+
+            <Button Name="button1"
+                    Width="75"
+                    Height="28"
+                    Margin="119,115,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Click="Button1Click"
+                    IsDefault="True"
+                    Content="Connect"
+                    Style="{StaticResource MetroButton}"
+                    TabIndex="3" />
+
+            <Button Name="button2"
+                    Width="75"
+                    Height="28"
+                    Margin="203,115,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Click="Button2Click"
+                    Content="Cancel"
+                    Style="{StaticResource MetroButton}"
+                    TabIndex="4" />
+        </Grid>
+    
+</Window>

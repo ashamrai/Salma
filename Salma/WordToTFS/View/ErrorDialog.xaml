@@ -1,0 +1,23 @@
+﻿<Window 
+        x:Class="WordToTFSWordAddIn.Views.ErrorDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:properties="clr-namespace:WordToTFS.Properties"
+        Closing="DataWindowClosed"  
+        WindowStartupLocation="CenterOwner"
+        Title="{x:Static properties:Resources.ErrorDialog_Title}"
+       SizeToContent="WidthAndHeight" HorizontalContentAlignment="Center" mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" Height="135" Width="408" >
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Style.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid Margin="0,0,2,0">
+        <Button Name="okButton" IsDefault="True" Margin="163,0,161,10" HorizontalAlignment="Center" VerticalAlignment="Bottom" Click="OkButtonClick" Content="{x:Static properties:Resources.ErrorDialog_Ok_Button}" Style="{StaticResource MetroButton}" Width="74" Grid.Column="1"/>
+        <TextBlock Name="messageBlock" HorizontalAlignment="Center" Margin="16,23,14,51" Text="messageBlock" Width="368" Grid.Column="1"/>
+    </Grid>
+
+</Window>
