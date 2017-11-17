@@ -40,8 +40,8 @@
         </group>
 
         <group id="groupReporting" getLabel="GetLabelText" autoScale="true" getImage="GetImageMSO">
-          <button id="btnReport" getImage="GetImageMSO" getLabel="GetLabelText" onAction="GenerateReportButtonClick"  getEnabled="EnabledState" size="large"    />
-          <button id="btnMatrix" getImage="GetImageMSO" getLabel="GetLabelText" onAction="GenerateMatrixButtonClick" getEnabled="EnabledState" size="large"   />
+          <button id="btnReport" getImage="GetImageMSO" getLabel="GetLabelText" onAction="GenerateReportButtonClick"  getEnabled="EnabledState" size="normal"    />
+          <button id="btnMatrix" getImage="GetImageMSO" getLabel="GetLabelText" onAction="GenerateMatrixButtonClick" getEnabled="EnabledState" size="normal"   />
         </group>        
         <group id="groupHelp" getLabel="GetLabelText" autoScale="true" getImage="GetImageMSO">
 

@@ -32,7 +32,7 @@ namespace WordToTFS.Model
         /// The <see cref="int"/>.
         /// </returns>
 
-        public static int AddWorkItemForCurrentProject(string projectName, string title, string workItemTypeString, string areapath = "", string linkend = "", int linkid = 0)
+        public static int AddWorkItemForCurrentProject(string projectName, string title, string workItemTypeString, string areapath = "", string linkend = "", int linkid = 0, string DocUrl = "")
         {
             WorkItemType workItemType =
                 TfsManager.Instance.ItemsStore.Projects[projectName].WorkItemTypes[workItemTypeString];
@@ -62,6 +62,15 @@ namespace WordToTFS.Model
                     WorkItemLinkTypeEnd linkTypeEnd = TfsManager.Instance.ItemsStore.WorkItemLinkTypes.LinkTypeEnds[linkend];
                     wi.Links.Add(new RelatedLink(linkTypeEnd, linkid));
                 }
+
+            if (DocUrl != "") wi.Links.Add(new Hyperlink(DocUrl));
+
+            var _save_errors = wi.Validate();
+
+            if (_save_errors.Count > 0)
+            {
+                return 0;
+            }
 
             wi.Save();
             return wi.Id;

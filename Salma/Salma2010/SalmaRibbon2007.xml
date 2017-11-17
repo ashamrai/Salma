@@ -24,13 +24,13 @@
           <button id="btnOpenWorkItem" imageMso="WebPagePreview" onAction="OnOpenWorkItem" getLabel="GetLabelText" getEnabled="EnabledState" size="large"  />
           
           <separator id="separator1" />
-          <button id="btnUpdateAndSync" imageMso="RecurrenceEdit" onAction="UpdateAndSyncButtonClick"   getEnabled="EnabledState" getLabel="GetLabelText" size="large"   />
-          <button id="btnExportItem" imageMso="ReviewPreviousCommentWord" onAction="OnExportItem" getLabel="GetLabelText" getEnabled="EnabledState"  size="large" />
-          <button id="btnImportItems" imageMso="ReviewNextCommentWord" onAction="OnImportItems" getLabel="GetLabelText" getEnabled="EnabledState"  size="large" />
+          <button id="btnUpdateAndSync" imageMso="RecurrenceEdit" onAction="UpdateAndSyncButtonClick"   getEnabled="EnabledState" getLabel="GetLabelText" size="normal"   />
+          <button id="btnExportItem" imageMso="ReviewPreviousCommentWord" onAction="OnExportItem" getLabel="GetLabelText" getEnabled="EnabledState"  size="normal" />
+          <button id="btnImportItems" imageMso="ReviewNextCommentWord" onAction="OnImportItems" getLabel="GetLabelText" getEnabled="EnabledState"  size="normal" />
         </group>
         <group id="group1" getLabel="GetLabelText">
-          <button id="btnReport" imageMso="GetExternalDataFromText" getLabel="GetLabelText" onAction="GenerateReportButtonClick"  getEnabled="EnabledState" size="large"    />
-          <button id="btnMatrix" imageMso="QueryCrosstab" getLabel="GetLabelText" onAction="GenerateMatrixButtonClick"   getEnabled="EnabledState" size="large"   />
+          <button id="btnReport" imageMso="GetExternalDataFromText" getLabel="GetLabelText" onAction="GenerateReportButtonClick"  getEnabled="EnabledState" size="normal"    />
+          <button id="btnMatrix" imageMso="QueryCrosstab" getLabel="GetLabelText" onAction="GenerateMatrixButtonClick"   getEnabled="EnabledState" size="normal"   />
         </group>
         <group id="groupHelp" getLabel="GetLabelText">
           <splitButton id="splitBtnHelp"   size="large">

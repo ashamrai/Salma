@@ -12,7 +12,7 @@ namespace Salma2010.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "14.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.3.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -117,6 +117,30 @@ namespace Salma2010.Properties {
             }
             set {
                 this["Obsolete_Tag_Text"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://\\S+;https://\\S+")]
+        public string Settings_docshare_pathpattern {
+            get {
+                return ((string)(this["Settings_docshare_pathpattern"]));
+            }
+            set {
+                this["Settings_docshare_pathpattern"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool Settings_docshare_link {
+            get {
+                return ((bool)(this["Settings_docshare_link"]));
+            }
+            set {
+                this["Settings_docshare_link"] = value;
             }
         }
     }

@@ -192,7 +192,24 @@ namespace Salma2010
 
             string type = listBoxCollection.GetValue();
             string title = listBoxCollection.GetTitle();
-            int workItemId = CreateNewWi.AddWorkItemForCurrentProject(projectName, title, type, areapath, linkend, linkid);
+            string doc_path = "";
+            if (Properties.Settings.Default.Settings_docshare_link)
+            {
+                string _actual_path = Application.ActiveDocument.Path + 
+                    ((Application.ActiveDocument.Path[Application.ActiveDocument.Path.Length - 1] == '/') ? "" : "/") + 
+                    Application.ActiveDocument.Name;
+                string[] _path_pat_array = Properties.Settings.Default.Settings_docshare_pathpattern.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
+                foreach (string _path_pat in _path_pat_array)
+                {
+                    if (Regex.IsMatch(_actual_path, _path_pat))
+                    {
+                        doc_path = _actual_path;
+                        break;
+                    }
+                }
+            }
+
+            int workItemId = CreateNewWi.AddWorkItemForCurrentProject(projectName, title, type, areapath, linkend, linkid, doc_path);
 
             WorkItemType = type;
 
