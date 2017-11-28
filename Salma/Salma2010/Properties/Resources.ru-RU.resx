@@ -229,7 +229,7 @@
     <value>Соединение с TFS</value>
   </data>
   <data name="groupHelpLabel" xml:space="preserve">
-    <value>Помощь</value>
+    <value>Система</value>
   </data>
   <data name="lblConnectionUrlLabel" xml:space="preserve">
     <value>Соединение с TFS</value>
@@ -320,5 +320,8 @@
   </data>
   <data name="btnObsoleteWorkItemLabel" xml:space="preserve">
     <value>Элемент Устарел</value>
+  </data>
+  <data name="btnSettingsLabel" xml:space="preserve">
+    <value>Настройки</value>
   </data>
 </root>

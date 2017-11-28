@@ -122,7 +122,7 @@ namespace Salma2010.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://\\S+;https://\\S+")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://\\S+;https://\\S+;ftp://\\S+")]
         public string Settings_docshare_pathpattern {
             get {
                 return ((string)(this["Settings_docshare_pathpattern"]));

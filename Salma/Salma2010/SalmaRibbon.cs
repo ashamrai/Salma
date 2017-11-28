@@ -268,6 +268,8 @@ namespace Salma2010
                     return OfficeHelper.GetImageMso(Icons.groupReporting, addIn.MsWordVersion);
                 case "groupConnect":
                     return OfficeHelper.GetImageMso(Icons.Connect, addIn.MsWordVersion);
+                case "btnSettings":
+                    return OfficeHelper.GetImageMso(Icons.Settings, addIn.MsWordVersion);
                 default:
                     return string.Empty;
             }
@@ -1029,6 +1031,15 @@ namespace Salma2010
         public void ShowPanelButtonClick(Office.IRibbonControl control)
         {
             addIn.ShowPanel();
+        }
+
+        /// <summary>
+        /// Generate Report Button Click
+        /// </summary>
+        /// <param name="control"></param>
+        public void SettingButtonClick(Office.IRibbonControl control)
+        {
+            addIn.ShowSetting();
         }
 
         #region IRibbonExtensibility Members

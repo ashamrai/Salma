@@ -173,7 +173,8 @@ namespace WordToTFS
         ExpandWorkItem,
         CollapseWorkItem,
         ShowPanel,
-        ObsoleteWorkItem
+        ObsoleteWorkItem,
+        Settings
     }
 
     /// <summary>

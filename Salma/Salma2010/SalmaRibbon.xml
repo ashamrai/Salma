@@ -39,16 +39,16 @@
           <button id="btnShowPanel" getImage="GetImageMSO" getLabel="GetLabelText" onAction="ShowPanelButtonClick" size="large"   visible="true"  />
         </group>
 
-        <group id="groupReporting" getLabel="GetLabelText" autoScale="true" getImage="GetImageMSO">
+        <group id="groupReporting" getLabel="GetLabelText" autoScale="true" getImage="GetImageMSO" visible="false">
           <button id="btnReport" getImage="GetImageMSO" getLabel="GetLabelText" onAction="GenerateReportButtonClick"  getEnabled="EnabledState" size="normal"    />
           <button id="btnMatrix" getImage="GetImageMSO" getLabel="GetLabelText" onAction="GenerateMatrixButtonClick" getEnabled="EnabledState" size="normal"   />
         </group>        
         <group id="groupHelp" getLabel="GetLabelText" autoScale="true" getImage="GetImageMSO">
-
-          <splitButton id="splitBtnHelp"   size="large">
-            <button id="btnHelp" getImage="GetImageMSO" getLabel="GetLabelText" onAction="OnHelpButtonClick" />
+          <button id="btnSettings" getImage="GetImageMSO" getLabel="GetLabelText" onAction="SettingButtonClick" size="large"/>
+          <splitButton id="splitBtnHelp"   size="large" visible="false">            
+            <button id="btnHelp" getImage="GetImageMSO" getLabel="GetLabelText" onAction="OnHelpButtonClick"/>
             <menu id="splitBtnHelp__mnu" >
-              <button id="btnHelp_mnu" getImage="GetImageMSO" getLabel="GetLabelText" onAction="OnHelpButtonClick" />
+              <button id="btnHelp_mnu" getImage="GetImageMSO" getLabel="GetLabelText" onAction="OnHelpButtonClick" />              
             </menu>
           </splitButton>
         </group>

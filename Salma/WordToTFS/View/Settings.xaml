@@ -1,0 +1,97 @@
+﻿<Window x:Class="WordToTFS.View.Settings"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WordToTFS.View"
+             xmlns:helpers="clr-namespace:WordToTFS.Helpers"
+             mc:Ignorable="d" 
+             d:DesignHeight="200" d:DesignWidth="500" WindowStartupLocation="CenterScreen" Title="Settings" Width="500" Height="200" ResizeMode="NoResize">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Style.xaml"></ResourceDictionary>
+                <ResourceDictionary>
+                    <DataTemplate x:Key="HtmlCellDataTemplate">
+                        <StackPanel>
+                            <TextBlock Text="{Binding Path=Name}" Margin="5,5,5,2"/>
+                            <TextBox Margin="5,0,5,5" Text="{Binding Path=Value, Mode=TwoWay, 
+                                UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, NotifyOnValidationError=True}" 
+                                     Height="70" 
+                                     SelectionBrush="#FF444444"
+                                     BorderBrush="#FF444444"
+                                     AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible"/>
+                        </StackPanel>
+                    </DataTemplate>
+                    <DataTemplate x:Key="StringCellDataTemplate">
+                        <StackPanel>
+                            <TextBlock Text="{Binding Path=Name}" Margin="5,5,5,2" />
+                            <TextBox Margin="5,0,5,5" Text="{Binding Path=Value, Mode=TwoWay, 
+                                UpdateSourceTrigger=PropertyChanged}" 
+                                     Height="23" 
+                                     SelectionBrush="#FF444444"
+                                     BorderBrush="#FF444444" />
+                        </StackPanel>
+                    </DataTemplate>
+                    <DataTemplate x:Key="NonEditableComboBoxCellDataTemplate">
+                        <StackPanel>
+                            <TextBlock Text="{Binding Path=Name}" Margin="5,5,5,2"/>
+                            <ComboBox Margin="5,0,5,5" Style="{StaticResource NonEditableComboBoxStyle}" 
+                                      ItemsSource="{Binding ComboBoxCollection}"
+                                      SelectedItem="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                    <DataTemplate x:Key="EditableComboBoxCellDataTemplate">
+                        <StackPanel Focusable="False">
+                            <TextBlock Text="{Binding Path=Name}" Margin="5,5,5,2"/>
+                            <ComboBox IsEditable="True" Margin="5,0,5,5"
+                                      ItemsSource="{Binding ComboBoxCollection}" 
+                                      Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" BorderBrush="#FF444444"/>
+                        </StackPanel>
+                    </DataTemplate>
+                    <DataTemplate x:Key="DateTimeCellDataTemplate">
+                        <StackPanel>
+                            <TextBlock Text="{Binding Path=Name}" Margin="5,5,5,2" />
+                            <DatePicker  SelectedDate="{Binding Path=Value, Mode=TwoWay, 
+                                UpdateSourceTrigger=PropertyChanged}" Margin="5,0,5,5" 
+                                        BorderBrush="#FF444444" Height="23" SelectedDateFormat="Short" />
+
+                            <!--Text="{Binding Path=Value, Mode=TwoWay, 
+                                UpdateSourceTrigger=PropertyChanged}"-->
+                        </StackPanel>
+                    </DataTemplate>
+                    <!--<DatePicker Height="25" HorizontalAlignment="Left" Margin="146,-18,0,0" Name="datePicker1" VerticalAlignment="Top" Width="115" />-->
+                    <helpers:DataGridCellDataTemplateSelector x:Key="TemplateSelector" 
+                                    NonEditableComboboxTemplate="{StaticResource NonEditableComboBoxCellDataTemplate}" 
+                                     EditableComboBoxTemplate="{StaticResource EditableComboBoxCellDataTemplate}"                         
+                                    StringTemplate="{StaticResource StringCellDataTemplate}"
+                                    HtmlTemplate="{StaticResource HtmlCellDataTemplate}"
+                                    DateTimeTemplate="{StaticResource DateTimeCellDataTemplate}"/>
+
+                    <Style TargetType="DataGrid">
+                        <Style.Triggers>
+                            <Trigger Property="IsFocused" Value="True">
+                                <Setter Property="Background" Value="Transparent" />
+                                <Setter Property="BorderBrush" Value="Transparent" />
+                                <Setter Property="Foreground" Value="Black"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid>
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Width="490" Height="170">
+            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Width="490" Height="30" Orientation="Horizontal">
+                <CheckBox Name="chkLinkSharedDocs" Content="Link Shared Documents" Margin="0,5,0,0"/>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Width="490" Height="30" Orientation="Horizontal" Margin="0,100,0,0">
+                <Button Name="btnOk" Content="Ok" Width="60" Margin="160,0,0,0" Click="btnOk_Click"/>
+                <Button Name="btnCancel" Content="Cancel" Width="60" Margin="40,0,0,0" Click="btnCancel_Click"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

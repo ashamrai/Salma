@@ -226,7 +226,7 @@
     <value>Work Items</value>
   </data>
   <data name="groupHelpLabel" xml:space="preserve">
-    <value>Help</value>
+    <value>System</value>
   </data>
   <data name="lblConnectionUrlLabel" xml:space="preserve">
     <value>Connection URL</value>
@@ -372,5 +372,8 @@
   </data>
   <data name="btnObsoleteWorkItemLabel" xml:space="preserve">
     <value>Obsolete Work Item</value>
+  </data>
+  <data name="btnSettingsLabel" xml:space="preserve">
+    <value>Settings</value>
   </data>
 </root>

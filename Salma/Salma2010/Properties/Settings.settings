@@ -28,7 +28,7 @@
       <Value Profile="(Default)">Obsolete</Value>
     </Setting>
     <Setting Name="Settings_docshare_pathpattern" Type="System.String" Scope="User">
-      <Value Profile="(Default)">http://\S+;https://\S+</Value>
+      <Value Profile="(Default)">http://\S+;https://\S+;ftp://\S+</Value>
     </Setting>
     <Setting Name="Settings_docshare_link" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>

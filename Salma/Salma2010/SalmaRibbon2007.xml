@@ -28,11 +28,12 @@
           <button id="btnExportItem" imageMso="ReviewPreviousCommentWord" onAction="OnExportItem" getLabel="GetLabelText" getEnabled="EnabledState"  size="normal" />
           <button id="btnImportItems" imageMso="ReviewNextCommentWord" onAction="OnImportItems" getLabel="GetLabelText" getEnabled="EnabledState"  size="normal" />
         </group>
-        <group id="group1" getLabel="GetLabelText">
+        <group id="group1" getLabel="GetLabelText" visible="false">
           <button id="btnReport" imageMso="GetExternalDataFromText" getLabel="GetLabelText" onAction="GenerateReportButtonClick"  getEnabled="EnabledState" size="normal"    />
           <button id="btnMatrix" imageMso="QueryCrosstab" getLabel="GetLabelText" onAction="GenerateMatrixButtonClick"   getEnabled="EnabledState" size="normal"   />
         </group>
         <group id="groupHelp" getLabel="GetLabelText">
+          <button id="btnSettings" imageMso="AddInManager" getLabel="GetLabelText" onAction="GenerateMatrixButtonClick"   getEnabled="EnabledState" size="large"   />
           <splitButton id="splitBtnHelp"   size="large">
             <button id="btnHelp" getLabel="GetLabelText" imageMso="FunctionsLogicalInsertGallery" />
             <menu id="splitBtnHelp__mnu" >

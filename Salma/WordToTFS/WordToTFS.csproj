@@ -324,8 +324,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>UIResources.ru-RU.resx</DependentUpon>
     </Compile>
-    <Compile Include="View\Options.xaml.cs">
-      <DependentUpon>Options.xaml</DependentUpon>
+    <Compile Include="View\Settings.xaml.cs">
+      <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
     <Compile Include="WordContentControl.cs" />
     <None Include="app.config" />
@@ -408,7 +408,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Options.xaml">
+    <Page Include="View\Settings.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

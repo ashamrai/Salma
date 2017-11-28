@@ -193,21 +193,7 @@ namespace Salma2010
             string type = listBoxCollection.GetValue();
             string title = listBoxCollection.GetTitle();
             string doc_path = "";
-            if (Properties.Settings.Default.Settings_docshare_link)
-            {
-                string _actual_path = Application.ActiveDocument.Path + 
-                    ((Application.ActiveDocument.Path[Application.ActiveDocument.Path.Length - 1] == '/') ? "" : "/") + 
-                    Application.ActiveDocument.Name;
-                string[] _path_pat_array = Properties.Settings.Default.Settings_docshare_pathpattern.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
-                foreach (string _path_pat in _path_pat_array)
-                {
-                    if (Regex.IsMatch(_actual_path, _path_pat))
-                    {
-                        doc_path = _actual_path;
-                        break;
-                    }
-                }
-            }
+            doc_path = GetActiveSharedPath();
 
             int workItemId = CreateNewWi.AddWorkItemForCurrentProject(projectName, title, type, areapath, linkend, linkid, doc_path);
 
@@ -215,30 +201,47 @@ namespace Salma2010
 
             if (workItemId != 0)
             {
-                 WordToTFS.View.ProgressDialog progressDialog = new WordToTFS.View.ProgressDialog();
+                WordToTFS.View.ProgressDialog progressDialog = new WordToTFS.View.ProgressDialog();
 
-                 progressDialog.Execute(cancelTokenSource =>
-                 {
-                     progressDialog.UpdateProgress(100, string.Format(ResourceHelper.GetResourceString("MSG_PROGRESS"), 1, 1, string.Format("{0} {1}", type, workItemId)), true);
+                progressDialog.Execute(cancelTokenSource =>
+                {
+                    progressDialog.UpdateProgress(100, string.Format(ResourceHelper.GetResourceString("MSG_PROGRESS"), 1, 1, string.Format("{0} {1}", type, workItemId)), true);
 
-                     try
-                     {
-                         AddWIControl(workItemId, "System.Title");
-                         WorkItemId = workItemId;
-                     }
-                     catch
-                     {
-                         errorMessage = ResourceHelper.GetResourceString("MSG_ERROR_ADD_WI");
-                     }
-                 });
+                    try
+                    {
+                        AddWIControl(workItemId, "System.Title");
+                        WorkItemId = workItemId;
+                    }
+                    catch
+                    {
+                        errorMessage = ResourceHelper.GetResourceString("MSG_ERROR_ADD_WI");
+                    }
+                });
 
-                 progressDialog.Create(ResourceHelper.GetResourceString("MSG_CREATE_WI_TITLE"), Icons.AddNewWorkItem);
+                progressDialog.Create(ResourceHelper.GetResourceString("MSG_CREATE_WI_TITLE"), Icons.AddNewWorkItem);
             }
             else
                 errorMessage = ResourceHelper.GetResourceString("MSG_ERROR_ADD_WI");
 
             if (!string.IsNullOrEmpty(errorMessage))
                 GenerateErrorMessage(errorMessage, Icons.AddNewWorkItem);
+        }
+
+        private string GetActiveSharedPath()
+        {
+            if (Properties.Settings.Default.Settings_docshare_link)
+            {
+                string[] _pathpatterns;
+                _pathpatterns = Properties.Settings.Default.Settings_docshare_pathpattern.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
+
+                foreach (string _pathpattern in _pathpatterns)
+                {
+                    if (Regex.IsMatch(Application.ActiveDocument.FullName, _pathpattern))
+                        return Application.ActiveDocument.FullName;
+                }
+            }
+
+            return "";
         }
 
         /// <summary>
@@ -864,6 +867,20 @@ namespace Salma2010
             }
         }
 
+        internal void ShowSetting()
+        {
+            WordToTFS.View.Settings _Settings = new WordToTFS.View.Settings();
+
+            _Settings.m_LinkDocs = Properties.Settings.Default.Settings_docshare_link;
+            _Settings.LoadSettingsToForm();
+            
+            if ((bool)_Settings.ShowDialog())
+            {
+                Properties.Settings.Default.Settings_docshare_link = _Settings.m_LinkDocs;
+                Properties.Settings.Default.Save();
+            }
+        }
+
         /// <summary>
         /// Add/replace work item control
         /// </summary>
@@ -1286,6 +1303,12 @@ namespace Salma2010
                     rel.Comment = "Copied from " + pWiItem.Id.ToString();
                     newItem.Links.Add(rel);
                 }
+
+                string doc_path = GetActiveSharedPath();
+
+                if (doc_path != "") newItem.Links.Add(new Microsoft.TeamFoundation.WorkItemTracking.Client.Hyperlink(doc_path));
+
+                //if (Properties.Settings.Default.Settings_docshare_link)
 
                 int newId = SaveWorkItem(newItem);
 
