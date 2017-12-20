@@ -3,7 +3,7 @@ SALMA is a handy tool for business analysts and project managers. The standard W
 With the SALMA Word add-on, any written and approved document (e.g. software blueprint, solution architecture description or any other highly or lowly structured, formal or informal, extensive or concise documents) that contains requirements, user stories, specifications or tasks, and can be easily transformed into embedded content within the TFS Work Items.
 The add-on enables efficient ALM practice integration into existing business structure and processes by leveraging MS TSF usage. It provides TFS platform penetration into common business document management practices, accelerating the overall ALM integration cycle.
 Key SALMA functionalities and benefits:
-- Users can connect to Teaqm Foundation Server (TFS) or Visual Studio Team Services (VSTS) 
+- Users can connect to Team Foundation Server (TFS) or Visual Studio Team Services (VSTS) 
 - Users can create work items with the help of MS Word instead of other clients (Team Explorer, Visual Studio or Team System Web Access).
 - Users in any ALM role can create a Work Item simply by selecting the text in a Word document and publishing it to a specific Project in the desired type.
 - Users can fill in the Work Item (WI) with a detailed description in a rich text format and insert charts, tables, shapes and images.
